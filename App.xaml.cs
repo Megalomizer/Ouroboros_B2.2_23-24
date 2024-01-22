@@ -1,12 +1,37 @@
-﻿namespace OuroborosEvents
+﻿using OuroborosEvents.Repositories;
+using OuroborosEvents.MVVM.Models;
+
+namespace OuroborosEvents
 {
     public partial class App : Application
     {
-        public App()
+        public static BaseRepository<Activity>? ActivityRepo { get; private set; }
+        public static BaseRepository<Address>? AddressRepo { get; private set; }
+        public static BaseRepository<Event>? EventRepo { get; private set; }
+        public static BaseRepository<EventGuest>? EventGuestRepo { get; private set; }
+        public static BaseRepository<Exhibit>? ExhibitRepo { get; private set; }
+        public static BaseRepository<Exhibitor>? ExhibitorRepo { get; private set; }
+        public static BaseRepository<Guest>? GuestRepo { get; private set; }
+        public static BaseRepository<Organiser>? OrganiserRepo { get; private set; }
+
+
+        public App(BaseRepository<Activity> activityRepo, BaseRepository<Address> addressRepo,
+            BaseRepository<Event> eventRepo, BaseRepository<EventGuest> eventGuestRepo,
+            BaseRepository<Exhibit> exhibitRepo, BaseRepository<Exhibitor> exhibitorRepo,
+            BaseRepository<Guest> guestRepo, BaseRepository<Organiser> organiserRepo)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            ActivityRepo = activityRepo;
+            AddressRepo = addressRepo;
+            EventRepo = eventRepo;
+            EventGuestRepo = eventGuestRepo;
+            ExhibitRepo = exhibitRepo;
+            ExhibitorRepo = exhibitorRepo;
+            GuestRepo = guestRepo;
+            OrganiserRepo = organiserRepo;
+
+            MainPage = new NavigationPage(new MainPage());
         }
     }
 }
