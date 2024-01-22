@@ -1,4 +1,5 @@
 ﻿using OuroborosEvents.Abstractions;
+using OuroborosEvents.MVVM.Models;
 using SQLite;
 using SQLiteNetExtensions.Extensions;
 using System;
@@ -18,6 +19,10 @@ namespace OuroborosEvents.Repositories
         {
             connection = new SQLiteConnection(Constants.DatabasePath, Constants.flags);
             connection.CreateTable<T>();
+
+            // Create All Tables by default
+            connection.CreateTables<Activity, Address, Event, EventGuest, EventExhibit>();
+            connection.CreateTables<Exhibit, Exhibitor, Guest, Organiser>();
         }
 
         /// <summary>

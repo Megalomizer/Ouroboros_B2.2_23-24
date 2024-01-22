@@ -1,5 +1,6 @@
 ﻿using OuroborosEvents.Repositories;
 using OuroborosEvents.MVVM.Models;
+using OuroborosEvents.MVVM.Views;
 
 namespace OuroborosEvents
 {
