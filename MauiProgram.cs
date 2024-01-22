@@ -19,17 +19,17 @@ namespace OuroborosEvents
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-/*            builder.Services.AddSingleton<BaseRepository<Activity>>();
+            builder.Services.AddSingleton<BaseRepository<Activity>>();
             builder.Services.AddSingleton<BaseRepository<Address>>();
             builder.Services.AddSingleton<BaseRepository<Event>>();
             builder.Services.AddSingleton<BaseRepository<EventGuest>>();
             builder.Services.AddSingleton<BaseRepository<Exhibit>>();
             builder.Services.AddSingleton<BaseRepository<Exhibitor>>();
             builder.Services.AddSingleton<BaseRepository<Guest>>();
-            builder.Services.AddSingleton<BaseRepository<Organiser>>();*/
+            builder.Services.AddSingleton<BaseRepository<Organiser>>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
