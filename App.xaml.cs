@@ -32,7 +32,7 @@ namespace OuroborosEvents
             GuestRepo = guestRepo;
             OrganiserRepo = organiserRepo;
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new EventsHomeTP());
         }
     }
 }
