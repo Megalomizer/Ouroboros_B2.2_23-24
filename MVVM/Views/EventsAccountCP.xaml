@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.EventsAccountCP"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              Title="EventsAccountCP">
     <VerticalStackLayout>
 
@@ -15,19 +16,19 @@
                        FontSize="20"
                        FontAttributes="Bold"
                        Margin="100,0,0,0"/>
-                <BoxView Color="Red"
+                <BoxView Color="{x:StaticResource Primary}"
                          HeightRequest="2"
                          Margin="100,0,0,0"/>
-                <Label Text="Lmao this shit looks like dawg"
+                <Label Text="norayrgocer@gmail.com"
                        Margin="100,0,0,0"/>
-                <Label Text="Phonenumber"
+                <Label Text="063057077"
                        Margin="100,0,0,0"/>
                 <Image Source="test_pfp.png"
                        HeightRequest="100"
                        WidthRequest="100"
                        Margin="0,-60,300,0"/>
             </StackLayout>
-
         </Frame>
+        <material:TextField Title="Name"/>
     </VerticalStackLayout>
 </ContentPage>
