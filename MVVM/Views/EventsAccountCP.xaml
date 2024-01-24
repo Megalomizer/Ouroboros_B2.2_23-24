@@ -20,15 +20,22 @@
                          HeightRequest="2"
                          Margin="100,0,0,0"/>
                 <Label Text="norayrgocer@gmail.com"
-                       Margin="100,0,0,0"/>
+                       Margin="100,0,0,0"
+                       Padding="1"/>
                 <Label Text="063057077"
-                       Margin="100,0,0,0"/>
+                       Margin="100,0,0,0"
+                       Padding="1"
+                       TextColor="{x:StaticResource Gray400}"/>
+                <Label Text="https://www.linkedin.com/in/norayr-g%C3%B6%C3%A7er-8b1032274/"
+                       LineBreakMode="WordWrap"
+                       Margin="100,0,0,0"
+                       Padding="1"/>
                 <Image Source="test_pfp.png"
                        HeightRequest="100"
                        WidthRequest="100"
-                       Margin="0,-60,300,0"/>
+                       Margin="0,-105,300,0"/>
             </StackLayout>
         </Frame>
-        <material:TextField Title="Name"/>
+        
     </VerticalStackLayout>
 </ContentPage>
