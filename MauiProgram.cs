@@ -24,7 +24,8 @@ namespace OuroborosEvents
                     fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemiBold");
                     fonts.AddFont("Poppins-Bold", "PoppinsBold");
                     fonts.AddMaterialIconFonts();
-                    
+                    fonts.AddFontAwesomeIconFonts();
+
                 });
 
             builder.Services.AddSingleton<BaseRepository<Activity>>();

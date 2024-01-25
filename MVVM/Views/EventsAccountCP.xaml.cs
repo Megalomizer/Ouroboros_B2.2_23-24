@@ -45,9 +45,11 @@ public partial class EventsAccountCP : ContentPage
         string filePath = Path.Combine(directory, fileName);
 
         using (Stream stream = photo.OpenReadAsync().Result)
-        using (FileStream fileStream = File.Open(filePath, FileMode.Create))
         {
-            stream.CopyTo(fileStream);
+            using (FileStream fileStream = File.Open(filePath, FileMode.Create))
+            {
+                stream.CopyTo(fileStream);
+            }
         }
 
         return filePath;

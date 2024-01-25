@@ -3,12 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.EventsAccountCP"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
              Title="EventsAccountCP">
     <VerticalStackLayout>
         <Frame
             CornerRadius="100"
             WidthRequest="150"
-            HeightRequest="150">
+            HeightRequest="150"
+            Margin="0,20,0,0">
             <ImageButton Source="test_pfp.png"
                          x:Name="AccountCPProfilePicture"
                          Clicked="ImageButton_Clicked"
@@ -17,28 +19,80 @@
                          BorderWidth="1"
                          CornerRadius="10"
                          WidthRequest="200"
-                         HeightRequest="200"
-                />
+                         HeightRequest="200"/>
         </Frame>
+
+        <StackLayout>
+            
+                <!-- Not yet databound  -->
         <Label Text="Levi Funk"
                HorizontalOptions="Center"
-               FontSize="25"
+               FontSize="35"
                Margin="0,5,0,0"
-               FontFamily="PoppinsBold">
-        </Label>
+               FontFamily="PoppinsBold"/>
 
+        <!-- Not yet databound  -->
         <Label  Text="Info"
-                FontSize="20"
+                FontSize="24"
                 Margin="15,0,0,0"
-                FontFamily="PoppinsBold"
-                
-           
+                FontFamily="PoppinsBold" />
+
+
+        <BoxView Color="{x:StaticResource Gray500}"
+             HeightRequest="2"
+             HorizontalOptions="Fill" 
+             Margin="15,0,100,8"/>
             
-            >
-            
-        </Label>
-        
-        
-        
+            <Grid Margin="15,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Envelope}" Color="{x:StaticResource Primary}" />
+                    </Image.Source>
+                </Image>
+
+                <StackLayout Grid.Column="1">
+                    <Label Text="Email"
+                           FontSize="15"
+                           FontFamily="PoppinsBold"
+                           Margin="20,0,0,0"/>
+
+                    <Label Text="Koopacapey@gmail.com"
+                           FontFamily="PoppinsRegular"
+                           TextColor="{x:StaticResource Gray400}"
+                           Margin="20,0,0,0"/>
+                </StackLayout>
+            </Grid>
+
+            <Grid Margin="15,25,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Phone}" Color="{x:StaticResource Primary}" />
+                    </Image.Source>
+                </Image>
+
+                <StackLayout Grid.Column="1">
+                    <Label Text="Phonenumber"
+                           FontSize="15"
+                           FontFamily="PoppinsBold"
+                           Margin="20,0,0,0"/>
+
+                    <Label Text="Koopacapey@gmail.com"
+                           FontFamily="PoppinsRegular"
+                           TextColor="{x:StaticResource Gray400}"
+                           Margin="20,0,0,0"/>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
