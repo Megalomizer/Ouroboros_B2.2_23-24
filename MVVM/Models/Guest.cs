@@ -11,7 +11,7 @@ namespace OuroborosEvents.MVVM.Models
     [Table("Guests")]
     public class Guest : User
     {
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<EventGuest>? EventEntries { get; set; }
+        [ManyToMany((typeof(EventGuest)), CascadeOperations = CascadeOperation.All)]
+        public List<Event>? EventEntries { get; set; }
     }
 }

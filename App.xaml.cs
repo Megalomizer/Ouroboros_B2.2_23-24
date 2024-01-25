@@ -6,6 +6,8 @@ namespace OuroborosEvents
 {
     public partial class App : Application
     {
+        public static User? LoggedInUser = new();
+
         public static BaseRepository<Activity>? ActivityRepo { get; private set; }
         public static BaseRepository<Address>? AddressRepo { get; private set; }
         public static BaseRepository<Event>? EventRepo { get; private set; }

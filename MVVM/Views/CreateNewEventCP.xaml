@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OuroborosEvents.MVVM.Views.CreateNewEventCP"
+             Title="CreateNewEventCP">
+
+    <StackLayout>
+
+        <Entry x:Name="Name"
+               Placeholder="Name"/>
+        <Editor x:Name="Description"
+                Placeholder="Description"
+                HeightRequest="100"/>
+        <DatePicker x:Name="StartingDate"/>
+        <DatePicker x:Name="EndingDate"/>
+        <TimePicker x:Name="StartingTime"/>
+        <TimePicker x:Name="EndingTime"/>
+
+        <Button x:Name="CreateEvent"
+                Text="Save Event"
+                Clicked="SaveEvent_btn"/>
+
+    </StackLayout>
+    
+</ContentPage>

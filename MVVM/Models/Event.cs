@@ -20,15 +20,15 @@ namespace OuroborosEvents.MVVM.Models
         // Laatste dag
         public DateTime? EndingDate { get; set; }
         // Dagelijkse openings tijd
-        public DateTime? DailyOpeningTime { get; set; } = null;
+        public TimeSpan? DailyOpeningTime { get; set; } = null;
         // Dagelijkse sluitings tijd
-        public DateTime? DailyClosingTime { get; set; } = null;
+        public TimeSpan? DailyClosingTime { get; set; } = null;
 
         [ForeignKey(typeof(Organiser))]
         public int OrganiserId { get; set; }
 
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<EventGuest>? EventGuests { get; set; } = null;
+        [ManyToMany((typeof(EventGuest)), CascadeOperations = CascadeOperation.All)]
+        public List<Guest>? EventGuests { get; set; } = null;
 
         [ForeignKey(typeof(Address))]
         public int AddressId { get; set; }
