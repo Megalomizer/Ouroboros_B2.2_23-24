@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.Repositories;
+using UraniumUI;
 
 namespace OuroborosEvents
 {
@@ -14,10 +15,18 @@ namespace OuroborosEvents
             builder
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
+                .UseUraniumUI()
+                .UseUraniumUIMaterial()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Poppins-Regular.ttf", "PoppinsRegular");
+                    fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemiBold");
+                    fonts.AddFont("Poppins-Bold", "PoppinsBold");
+                    fonts.AddMaterialIconFonts();
+                    fonts.AddFontAwesomeIconFonts();
+
                 });
 
             builder.Services.AddSingleton<BaseRepository<Activity>>();

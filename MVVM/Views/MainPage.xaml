@@ -1,7 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OuroborosEvents.MVVM.Views.MainPage">
+             x:Class="OuroborosEvents.MVVM.Views.MainPage"
+             >
 
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="10"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                Text="Welkom bij de eventapplicatie van Ouroboros!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Center"/>
+
+            <Label
+                x:Name="UsernameLbl"
+                Text="E-Mail:"
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="UsernameEnt"
+                Placeholder="Please enter your E-Mail."
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="PasswordLbl"
+                Text="Password:"
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="PasswordEnt"
+                Placeholder="Please enter your password."
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="LoginBtn"
+                Text="Log in"
+                Clicked="LoginBtn_Clicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="RegisterBtn"
+                Text="Register"
+                Clicked="RegisterBtn_Clicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

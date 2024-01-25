@@ -2,32 +2,97 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.EventsAccountCP"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
              Title="EventsAccountCP">
     <VerticalStackLayout>
-
-        <Frame BorderColor="Gray"
-               BackgroundColor="Transparent"
-               CornerRadius="5"
-               Padding="10"
-               WidthRequest="400">
-            <StackLayout>
-                <Label Text="Norayr Gocer"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       Margin="100,0,0,0"/>
-                <BoxView Color="Red"
-                         HeightRequest="2"
-                         Margin="100,0,0,0"/>
-                <Label Text="Lmao this shit looks like dawg"
-                       Margin="100,0,0,0"/>
-                <Label Text="Phonenumber"
-                       Margin="100,0,0,0"/>
-                <Image Source="test_pfp.png"
-                       HeightRequest="100"
-                       WidthRequest="100"
-                       Margin="0,-60,300,0"/>
-            </StackLayout>
-
+        <Frame
+            CornerRadius="100"
+            WidthRequest="150"
+            HeightRequest="150"
+            Margin="0,20,0,0">
+            <ImageButton Source="test_pfp.png"
+                         x:Name="AccountCPProfilePicture"
+                         Clicked="ImageButton_Clicked"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         BorderWidth="1"
+                         CornerRadius="10"
+                         WidthRequest="200"
+                         HeightRequest="200"/>
         </Frame>
+
+        <StackLayout>
+            
+                <!-- Not yet databound  -->
+        <Label Text="Levi Funk"
+               HorizontalOptions="Center"
+               FontSize="35"
+               Margin="0,5,0,0"
+               FontFamily="PoppinsBold"/>
+
+        <!-- Not yet databound  -->
+        <Label  Text="Info"
+                FontSize="24"
+                Margin="15,0,0,0"
+                FontFamily="PoppinsBold" />
+
+
+        <BoxView Color="{x:StaticResource Gray500}"
+             HeightRequest="2"
+             HorizontalOptions="Fill" 
+             Margin="15,0,100,8"/>
+            
+            <Grid Margin="15,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Envelope}" Color="{x:StaticResource Primary}" />
+                    </Image.Source>
+                </Image>
+
+                <StackLayout Grid.Column="1">
+                    <Label Text="Email"
+                           FontSize="15"
+                           FontFamily="PoppinsBold"
+                           Margin="20,0,0,0"/>
+
+                    <Label Text="Koopacapey@gmail.com"
+                           FontFamily="PoppinsRegular"
+                           TextColor="{x:StaticResource Gray400}"
+                           Margin="20,0,0,0"/>
+                </StackLayout>
+            </Grid>
+
+            <Grid Margin="15,25,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Phone}" Color="{x:StaticResource Primary}" />
+                    </Image.Source>
+                </Image>
+
+                <StackLayout Grid.Column="1">
+                    <Label Text="Phonenumber"
+                           FontSize="15"
+                           FontFamily="PoppinsBold"
+                           Margin="20,0,0,0"/>
+
+                    <Label Text="Koopacapey@gmail.com"
+                           FontFamily="PoppinsRegular"
+                           TextColor="{x:StaticResource Gray400}"
+                           Margin="20,0,0,0"/>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
