@@ -14,7 +14,9 @@
                 Text="Welkom bij de eventapplicatie van Ouroboros!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="24"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Center"/>
 
             <Label
                 x:Name="UsernameLbl"
