@@ -16,8 +16,8 @@ namespace OuroborosEvents.MVVM.Views
         private async void EventSelected(object sender, EventArgs e)
         {
 			var viewCell = sender as ViewCell;
-			var tappedCell = viewCell.BindingContext as YourEventsVM;
-			await Navigation.PushAsync(new ActivitiesOfEventCP() { BindingContext = tappedCell });
+			var tappedCell = viewCell.BindingContext as YourEventModelVM;
+			await Navigation.PushAsync(new EventsDetailsCP() { BindingContext = tappedCell });
         }
 
         private async void CreateEventButton(object sender, EventArgs e)
