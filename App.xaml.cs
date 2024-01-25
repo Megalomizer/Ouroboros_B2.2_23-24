@@ -6,6 +6,8 @@ namespace OuroborosEvents
 {
     public partial class App : Application
     {
+        public static User? LoggedInUser { get; set; }
+
         public static BaseRepository<Activity>? ActivityRepo { get; private set; }
         public static BaseRepository<Address>? AddressRepo { get; private set; }
         public static BaseRepository<Event>? EventRepo { get; private set; }
@@ -32,7 +34,9 @@ namespace OuroborosEvents
             GuestRepo = guestRepo;
             OrganiserRepo = organiserRepo;
 
-            MainPage = new NavigationPage(new EventsHomeTP());
+            MainPage = new NavigationPage(new MainPage()); 
+
+            //MainPage = new NavigationPage(new EventsHomeTP()); // skips login
         }
     }
 }

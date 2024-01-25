@@ -17,7 +17,6 @@ namespace OuroborosEvents.MVVM.Models
         public string? LastName { get; set; }
         [Unique, EmailAddress, Required]
         public string? Email { get; set; }
-        [Unique, Phone]
         public int PhoneNumber { get; set; }
         public string? LinkedIn { get; set; } = null;
         public string? Password { get; set; }

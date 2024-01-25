@@ -5,6 +5,7 @@
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
             xmlns:local="clr-namespace:OuroborosEvents.MVVM.Views"
+            NavigationPage.HasNavigationBar="False"
             Title="EventsHomeTP">
 
     <local:EventsDiscoverCP Title="Discover"/>
