@@ -20,13 +20,24 @@
                          HeightRequest="200"
                 />
         </Frame>
-        <Label Text="Norayr Gocer"
+        <Label Text="Levi Funk"
                HorizontalOptions="Center"
-               FontSize="20"
-               FontAttributes="Bold"
-               Margin="0,5,0,0">
-
+               FontSize="25"
+               Margin="0,5,0,0"
+               FontFamily="PoppinsBold">
         </Label>
+
+        <Label  Text="Info"
+                FontSize="20"
+                Margin="15,0,0,0"
+                FontFamily="PoppinsBold"
+                
+           
+            
+            >
+            
+        </Label>
+        
         
         
     </VerticalStackLayout>

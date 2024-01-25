@@ -32,6 +32,7 @@ public partial class EventsAccountCP : ContentPage
         }
         else
         {
+            //IF something goes wrong. Not very likely to happen doe
             await Shell.Current.DisplayAlert("Oops", "Your device isn't supported", "Ok");
         }
     }
