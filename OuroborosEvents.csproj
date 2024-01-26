@@ -82,6 +82,9 @@
 	  <MauiXaml Update="MVVM\Views\CreateNewEventCP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\EditEventCP.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\EventsAccountCP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
