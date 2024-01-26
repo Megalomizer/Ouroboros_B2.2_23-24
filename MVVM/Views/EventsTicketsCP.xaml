@@ -21,6 +21,11 @@
                          BarcodeFormat="QR_CODE" 
                          BarcodeMargin="5" 
                          Barcode="Lmao it works"/>
+        <CV:CameraView x:Name="CameraView"
+                       WidthRequest="300"
+                       HeightRequest="200"
+                       CamerasLoaded="CameraView_CamerasLoaded"
+                       BarCodeDetectionEnabled="True"/>
 
     </VerticalStackLayout>
 </ContentPage>

@@ -5,6 +5,14 @@
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
              Title="EventsAccountCP">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="QR_Button"
+            Clicked="QR_Button_Clicked"
+            Order="Primary"
+            Priority="0"/>
+    </ContentPage.ToolbarItems>
+    
     <VerticalStackLayout>
         <Frame
             CornerRadius="100"
