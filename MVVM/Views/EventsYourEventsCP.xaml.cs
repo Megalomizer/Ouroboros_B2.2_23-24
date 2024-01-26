@@ -25,7 +25,7 @@ namespace OuroborosEvents.MVVM.Views
 			await Navigation.PushAsync(new CreateNewEventCP());
         }
 
-        private async void ResetList(object sender, EventArgs e)
+        public async void ResetList(object sender, EventArgs e)
         {
             viewModel = new YourEventsVM();
             BindingContext = null;

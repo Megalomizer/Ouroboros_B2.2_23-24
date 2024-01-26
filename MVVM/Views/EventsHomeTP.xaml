@@ -6,6 +6,7 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             xmlns:local="clr-namespace:OuroborosEvents.MVVM.Views"
             NavigationPage.HasNavigationBar="False"
+            NavigationPage.HasBackButton="False"
             Title="EventsHomeTP">
 
     <local:EventsDiscoverCP Title="Discover"/>
