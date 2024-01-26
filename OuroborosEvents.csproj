@@ -94,6 +94,9 @@
 	  <MauiXaml Update="MVVM\Views\EventsHomeTP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\EventsQRCodeCP.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\EventsTicketsCP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

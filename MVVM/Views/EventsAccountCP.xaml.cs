@@ -22,7 +22,7 @@ public partial class EventsAccountCP : ContentPage
     {
         if (MediaPicker.Default.IsCaptureSupported)
         {
-            // LOAD PHOTO
+            // LOAD PHOTO. everything is saved in cache in terms of pfp, so no keeping a pfp when app is delete/cache is emptied
             FileResult photo = await MediaPicker.Default.PickPhotoAsync();
             if (photo != null)
             {
