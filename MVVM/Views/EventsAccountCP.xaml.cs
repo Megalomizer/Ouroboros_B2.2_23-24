@@ -57,9 +57,9 @@ public partial class EventsAccountCP : ContentPage
         return filePath;
     }
 
-    private void LogoutButton_Clicked(object sender, EventArgs e)
+    private async void LogoutButton_Clicked(object sender, EventArgs e)
     {
-        
+        new MainPage();
     }
 }
 
