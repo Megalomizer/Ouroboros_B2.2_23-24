@@ -8,6 +8,7 @@ public partial class EventsAccountCP : ContentPage
     public EventsAccountCP()
     {
         InitializeComponent();
+        BindingContext = App.LoggedInUser;
 
         BindingContext = new YourAccountVM();
 
@@ -57,7 +58,23 @@ public partial class EventsAccountCP : ContentPage
         return filePath;
     }
 
-    private async void QR_Button_Clicked(object sender, EventArgs e)
+    private async void LogoutUser(object sender, EventArgs e)
+    {
+        string cancel = "Cancel";
+        string destruction = "Log out";
+        string useraction = await DisplayActionSheet("Are you sure you want to log out?", cancel, destruction);
+
+        if(useraction == destruction)
+        {
+            App.LoggedInUser = null;
+            SecureStorage.Remove("Username");
+            SecureStorage.Remove("Password");
+            SecureStorage.Remove("Type");
+            await Navigation.PopToRootAsync();
+        }
+    }
+
+    private void QR_Button_Clicked(object sender, EventArgs e)
     {
 
     }
