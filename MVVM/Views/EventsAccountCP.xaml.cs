@@ -8,8 +8,6 @@ public partial class EventsAccountCP : ContentPage
     public EventsAccountCP()
     {
         InitializeComponent();
-        BindingContext = App.LoggedInUser;
-
         BindingContext = new YourAccountVM();
 
         // On startup, check if a photo path is stored in preferences and load it
