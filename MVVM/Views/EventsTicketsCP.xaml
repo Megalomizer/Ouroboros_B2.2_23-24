@@ -3,11 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.EventsTicketsCP"
              Title="EventsTicketsCP"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False"
+             xmlns:CV="clr-namespace:Camera.MAUI;assembly=Camera.MAUI">
+    
     <VerticalStackLayout>
         <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <CV:BarcodeImage WidthRequest="400"
+                         HeightRequest="400" 
+                         BarcodeHeight="400" 
+                         BarcodeWidth="400" 
+                         BarcodeBackground="White" 
+                         BarcodeForeground="Red" 
+                         BarcodeFormat="QR_CODE" 
+                         BarcodeMargin="5" 
+                         Barcode="Lmao it works"/>
+        <CV:CameraView x:Name="CameraView"
+                       WidthRequest="300"
+                       HeightRequest="200"
+                       CamerasLoaded="CameraView_CamerasLoaded"
+                       BarCodeDetectionEnabled="True"/>
+
     </VerticalStackLayout>
 </ContentPage>

@@ -1,4 +1,5 @@
 namespace OuroborosEvents.MVVM.Views;
+using OuroborosEvents.MVVM.ViewModels;
 
 public partial class EventsAccountCP : ContentPage
 {
@@ -8,6 +9,8 @@ public partial class EventsAccountCP : ContentPage
     {
         InitializeComponent();
         BindingContext = App.LoggedInUser;
+
+        BindingContext = new YourAccountVM();
 
         // On startup, check if a photo path is stored in preferences and load it
         if (Preferences.ContainsKey(PhotoPathKey))
@@ -69,6 +72,11 @@ public partial class EventsAccountCP : ContentPage
             SecureStorage.Remove("Type");
             await Navigation.PopToRootAsync();
         }
+    }
+
+    private void QR_Button_Clicked(object sender, EventArgs e)
+    {
+
     }
 }
 

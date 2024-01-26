@@ -6,4 +6,9 @@ public partial class EventsTicketsCP : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void CameraView_CamerasLoaded(object sender, EventArgs e)
+    {
+
+    }
 }
