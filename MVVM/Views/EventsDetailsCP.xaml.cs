@@ -39,6 +39,12 @@ public partial class EventsDetailsCP : ContentPage
         }
     }
 
+    private async void EditEvent(object sender, EventArgs e)
+    {
+        var eventData = BindingContext;
+        await Navigation.PushAsync(new EditEventCP() { BindingContext = eventData });
+    }
+
     private async void ShowAllActivities(object sender, EventArgs e)
     {
         var eventData = sender as YourEventModelVM;

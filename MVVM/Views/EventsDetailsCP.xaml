@@ -17,22 +17,22 @@
                    Text="/"
                    TextColor="{x:StaticResource Gray300}"
                    FontSize="14"/>
-            
+
             <Label x:Name="StartingDate_Date"
                    Text="{Binding Event.StartingDate.Month}"
                    TextColor="{x:StaticResource Gray300}"
                    FontSize="14"/>
-            
+
             <Label x:Name="StartingDate_MonthYear"
                    Text="/"
                    TextColor="{x:StaticResource Gray300}"
                    FontSize="14"/>
-            
+
             <Label x:Name="StartingDate_Month"
                    Text="{Binding Event.StartingDate.Year}"
                    TextColor="{x:StaticResource Gray300}"
                    FontSize="14"/>
-            
+
             <Label x:Name="StartingDate_Time"
                    Text="{Binding Event.DailyOpeningTime}"
                    TextColor="{x:StaticResource Gray300}"
@@ -65,18 +65,23 @@
                    HeightRequest="3"
                    Background="{x:StaticResource Primary}"/>
 
-        <HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10"
+                               >
             <Button x:Name="IntrestedEventButton"
                     Text="Intrested"
-                    WidthRequest="160"
-                    Margin="0,0,10,0"
+                    WidthRequest="105"
                     Clicked="IntrestedEvent"/>
-            
+
             <Button x:Name="ShareEventButton"
                     Text="Share"
-                    WidthRequest="160"
-                    Margin="5,0,0,0"
+                    WidthRequest="105"
                     Clicked="ShareEvent"/>
+
+            <Button x:Name="EditEventButton"
+                    Text="Edit Event"
+                    WidthRequest="105"
+                    Clicked="EditEvent"/>
+
         </HorizontalStackLayout>
 
         <Button x:Name="GetEventTicketButton"
@@ -104,5 +109,5 @@
                 Margin="0,40,0,0"/>
 
     </VerticalStackLayout>
-    
+
 </ContentPage>
