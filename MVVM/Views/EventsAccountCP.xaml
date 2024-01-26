@@ -39,12 +39,12 @@
                                    HorizontalOptions="Center">
 
                 <Label x:Name="Firstname"
-                       Text="{Binding FirstName}"
+                       Text="{Binding User.FirstName}"
                        FontSize="35"
                        FontFamily="PoppinsBold"/>
 
                 <Label x:Name="Lastname"
-                       Text="{Binding LastName}"
+                       Text="{Binding User.LastName}"
                        FontSize="35"
                        FontFamily="PoppinsBold"/>
 
@@ -79,7 +79,7 @@
                            FontFamily="PoppinsBold"
                            Margin="20,0,0,0"/>
 
-                    <Label Text="{Binding Email}"
+                    <Label Text="{Binding User.Email}"
                            x:Name="Emailaddress"
                            FontFamily="PoppinsRegular"
                            TextColor="{x:StaticResource Gray400}"
@@ -105,7 +105,7 @@
                            FontFamily="PoppinsBold"
                            Margin="20,0,0,0"/>
 
-                    <Label Text="{Binding PhoneNumber}"
+                    <Label Text="{Binding User.PhoneNumber}"
                            x:Name="Phonenumber"
                            FontFamily="PoppinsRegular"
                            TextColor="{x:StaticResource Gray400}"
@@ -142,7 +142,7 @@
                            FontFamily="PoppinsBold"
                            Margin="20,0,0,0"/>
 
-                    <Label Text="{Binding LinkedIn}"
+                    <Label Text="{Binding User.LinkedIn}"
                            x:Name="LinkedIn"
                            FontFamily="PoppinsRegular"
                            TextColor="{x:StaticResource Gray400}"
