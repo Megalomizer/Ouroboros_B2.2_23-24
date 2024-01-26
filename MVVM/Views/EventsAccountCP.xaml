@@ -4,7 +4,8 @@
              x:Class="OuroborosEvents.MVVM.Views.EventsAccountCP"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
-             Title="EventsAccountCP">
+             Title="EventsAccountCP"
+             NavigationPage.HasBackButton="False">
     <VerticalStackLayout>
         <Frame
             CornerRadius="100"
@@ -23,26 +24,34 @@
         </Frame>
 
         <StackLayout>
-            
-        <!-- Not yet databound  -->
-        <Label Text="Levi Funk"
-               HorizontalOptions="Center"
-               FontSize="35"
-               Margin="0,5,0,0"
-               FontFamily="PoppinsBold"/>
 
-        <!-- Not yet databound  -->
-        <Label  Text="Info"
-                FontSize="24"
-                Margin="15,0,0,0"
-                FontFamily="PoppinsBold" />
+            <HorizontalStackLayout Spacing="5"
+                                   Margin="0,5,0,0"
+                                   HorizontalOptions="Center">
+
+                <Label x:Name="Firstname"
+                       Text="{Binding FirstName}"
+                       FontSize="35"
+                       FontFamily="PoppinsBold"/>
+
+                <Label x:Name="Lastname"
+                       Text="{Binding LastName}"
+                       FontSize="35"
+                       FontFamily="PoppinsBold"/>
+
+            </HorizontalStackLayout>
+
+            <Label  Text="Info"
+                    FontSize="24"
+                    Margin="15,0,0,0"
+                    FontFamily="PoppinsBold" />
 
 
-        <BoxView Color="{x:StaticResource Gray500}"
-             HeightRequest="2"
-             HorizontalOptions="Fill" 
-             Margin="15,0,100,8"/>
-            
+            <BoxView Color="{x:StaticResource Gray500}"
+                     HeightRequest="2"
+                     HorizontalOptions="Fill" 
+                     Margin="15,0,100,8"/>
+
             <Grid Margin="15,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -61,7 +70,8 @@
                            FontFamily="PoppinsBold"
                            Margin="20,0,0,0"/>
 
-                    <Label Text="Koopacapey@gmail.com"
+                    <Label Text="{Binding Email}"
+                           x:Name="Emailaddress"
                            FontFamily="PoppinsRegular"
                            TextColor="{x:StaticResource Gray400}"
                            Margin="20,0,0,0"/>
@@ -86,7 +96,8 @@
                            FontFamily="PoppinsBold"
                            Margin="20,0,0,0"/>
 
-                    <Label Text="Koopacapey@gmail.com"
+                    <Label Text="{Binding PhoneNumber}"
+                           x:Name="Phonenumber"
                            FontFamily="PoppinsRegular"
                            TextColor="{x:StaticResource Gray400}"
                            Margin="20,0,0,0"/>
@@ -96,13 +107,13 @@
             <Label  Text="Social accounts"
                     FontSize="24"
                     Margin="15,40,0,0"
-                    FontFamily="PoppinsBold" /> 
-            
+                    FontFamily="PoppinsBold" />
+
             <BoxView Color="{x:StaticResource Gray500}"
                      HeightRequest="2"
                      HorizontalOptions="Fill" 
                      Margin="15,0,100,8"/>
-            
+
             <Grid Margin="15,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -116,18 +127,26 @@
                 </Image>
 
                 <StackLayout Grid.Column="1">
-                    
+
                     <Label Text="LinkedIn"
                            FontSize="15"
                            FontFamily="PoppinsBold"
                            Margin="20,0,0,0"/>
 
-                    <Label Text="https://www.linkedin.com"
+                    <Label Text="{Binding LinkedIn}"
+                           x:Name="LinkedIn"
                            FontFamily="PoppinsRegular"
                            TextColor="{x:StaticResource Gray400}"
                            Margin="20,0,0,0"/>
                 </StackLayout>
             </Grid>
+
+            <Button x:Name="LogoutButton"
+                    Text="Log out"
+                    Margin="0,10,0,0"
+                    FontSize="18"
+                    HeightRequest="50"
+                    Clicked="LogoutUser"/>
 
         </StackLayout>
     </VerticalStackLayout>

@@ -22,20 +22,15 @@ namespace OuroborosEvents.MVVM.ViewModels
 
             List<Event>? events = App.EventRepo.GetEntities();
 
-            /*// Get a list of all events that the user attends IT DOESNT WORK DON'T UNCOMMENT PLEASE
+            // Get a list of all events that the user attends IT DOESNT WORK DON'T UNCOMMENT PLEASE
             if (App.LoggedInUser.GetType() == typeof(Guest))
             {
-                foreach (Event e in events)
+                Guest guest = App.GuestRepo.GetEntity(App.LoggedInUser.Id);
+
+                foreach(Event event_ in guest.EventEntries)
                 {
-                    foreach (Guest eg in e.EventGuests)
-                    {
-                        if (eg.Id == App.LoggedInUser.Id)
-                        {
-                            Address address = App.AddressRepo.GetEntity(e.AddressId);
-                            if (address != null)
-                                yourEvents.Add(new YourEventModelVM { Address = address, Event = e });
-                        }
-                    }
+                    Address address = App.AddressRepo.GetEntity(event_.AddressId);
+                    yourEvents.Add(new YourEventModelVM() { Event = event_, Address = address });
                 }
             } // Get a list of all events the organiser owns
             else if (App.LoggedInUser.GetType() == typeof(Organiser))
@@ -65,15 +60,7 @@ namespace OuroborosEvents.MVVM.ViewModels
                         }
                     }
                 }
-            }*/
-
-            // Temp
-            foreach (Event e in events)
-            {
-                Address address = App.AddressRepo.GetEntity(e.AddressId);
-                yourEvents.Add(new YourEventModelVM { Address = address, Event = e });
             }
-            //
 
             return yourEvents;
         }

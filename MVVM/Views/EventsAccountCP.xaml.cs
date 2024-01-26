@@ -7,6 +7,7 @@ public partial class EventsAccountCP : ContentPage
     public EventsAccountCP()
     {
         InitializeComponent();
+        BindingContext = App.LoggedInUser;
 
         // On startup, check if a photo path is stored in preferences and load it
         if (Preferences.ContainsKey(PhotoPathKey))
@@ -52,6 +53,22 @@ public partial class EventsAccountCP : ContentPage
         }
 
         return filePath;
+    }
+
+    private async void LogoutUser(object sender, EventArgs e)
+    {
+        string cancel = "Cancel";
+        string destruction = "Log out";
+        string useraction = await DisplayActionSheet("Are you sure you want to log out?", cancel, destruction);
+
+        if(useraction == destruction)
+        {
+            App.LoggedInUser = null;
+            SecureStorage.Remove("Username");
+            SecureStorage.Remove("Password");
+            SecureStorage.Remove("Type");
+            await Navigation.PopToRootAsync();
+        }
     }
 }
 

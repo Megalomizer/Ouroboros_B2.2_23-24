@@ -4,7 +4,6 @@ namespace OuroborosEvents.MVVM.Views
 {
 	public partial class EventsYourEventsCP : ContentPage
 	{
-
 		public YourEventsVM viewModel { get; set; }
 
         public EventsYourEventsCP()
@@ -25,7 +24,7 @@ namespace OuroborosEvents.MVVM.Views
 			await Navigation.PushAsync(new CreateNewEventCP());
         }
 
-        public async void ResetList(object sender, EventArgs e)
+        public void ResetList(object sender, EventArgs e)
         {
             viewModel = new YourEventsVM();
             BindingContext = null;

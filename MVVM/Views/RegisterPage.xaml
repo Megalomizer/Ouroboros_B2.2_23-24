@@ -29,14 +29,25 @@
             HorizontalOptions="Center" />
         <Entry
             x:Name="RegEMail"
+            Keyboard="Email"
             Placeholder="Please enter your E-Mail."
             HorizontalOptions="Center" />
+
+        <Label x:Name="RegPhonelb"
+               Text="Phonenumber"
+               HorizontalOptions="Center"/>
+        <Entry x:Name="RegPhone"
+               Keyboard="Numeric"
+               Placeholder="Please enter your phonenumber"
+               HorizontalOptions="Center"/>
+
         <Label
             x:Name="Passwordlbl"
             Text="Password:"
             HorizontalOptions="Center" />
         <Entry
             x:Name="RegPassword"
+            IsPassword="True"
             Placeholder="Please enter your password."
             HorizontalOptions="Center" />
         <Label
@@ -45,10 +56,11 @@
             HorizontalOptions="Center" />
         <Entry
             x:Name="RegPasswordCheck"
+            IsPassword="True"
             Placeholder="Please enter your password."
             HorizontalOptions="Center" />
-        
-        
+
+
         <Button
             x:Name="RegisterBtn"
             Text="Register"
