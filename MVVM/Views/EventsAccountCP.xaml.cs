@@ -1,4 +1,5 @@
 namespace OuroborosEvents.MVVM.Views;
+using OuroborosEvents.MVVM.ViewModels;
 
 public partial class EventsAccountCP : ContentPage
 {
@@ -7,6 +8,8 @@ public partial class EventsAccountCP : ContentPage
     public EventsAccountCP()
     {
         InitializeComponent();
+
+        BindingContext = new YourAccountVM();
 
         // On startup, check if a photo path is stored in preferences and load it
         if (Preferences.ContainsKey(PhotoPathKey))
