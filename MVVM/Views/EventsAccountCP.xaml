@@ -129,6 +129,9 @@
                 </StackLayout>
             </Grid>
 
+            <Button Text="Logout"
+                    Margin="0,50,0,0"/>
+
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
