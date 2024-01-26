@@ -9,9 +9,13 @@
             NavigationPage.HasBackButton="False"
             Title="EventsHomeTP">
 
-    <local:EventsDiscoverCP Title="Discover"/>
-    <local:EventsYourEventsCP Title="My Events"/>
-    <local:EventsTicketsCP Title="Tickets"/>
-    <local:EventsAccountCP Title="Account"/>
+    <local:EventsDiscoverCP Title="Discover"
+                            IconImageSource="discover_icon.png"/>
+    <local:EventsYourEventsCP Title="My Events"
+                              IconImageSource="myevents_icon.png"/>
+    <local:EventsTicketsCP Title="Tickets"
+                           IconImageSource="ticket_icon.png"/>
+    <local:EventsAccountCP Title="Account"
+                           IconImageSource="account_icon.png"/>
 
 </TabbedPage>

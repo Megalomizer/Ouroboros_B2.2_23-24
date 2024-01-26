@@ -21,7 +21,7 @@
             WidthRequest="150"
             HeightRequest="150"
             Margin="0,20,0,0">
-            <ImageButton Source="levi_default_pfp.png"
+            <ImageButton Source="default_pfp.png"
                          x:Name="AccountCPProfilePicture"
                          Clicked="ImageButton_Clicked"
                          HorizontalOptions="Center"
