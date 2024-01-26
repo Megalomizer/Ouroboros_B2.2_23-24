@@ -14,13 +14,10 @@
                 Padding="30,0"
                 VerticalOptions="CenterAndExpand">
 
-                <Label
-                Text="Welkom bij de eventapplicatie van Ouroboros!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="24"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                HorizontalTextAlignment="Center"/>
+                <Image
+                 Source="zuyd_login.png"
+                 HeightRequest="120"
+                 Margin="0,0,0,0"/>
 
                 <material:TextField
                 x:Name="UsernameEnt"
