@@ -1,6 +1,7 @@
 ﻿using OuroborosEvents.Repositories;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.Views;
+using System.ComponentModel;
 
 namespace OuroborosEvents
 {
@@ -35,8 +36,6 @@ namespace OuroborosEvents
             OrganiserRepo = organiserRepo;
 
             MainPage = new NavigationPage(new MainPage()); 
-
-            //MainPage = new NavigationPage(new EventsHomeTP()); // skips login
         }
     }
 }

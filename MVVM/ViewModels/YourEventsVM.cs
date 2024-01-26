@@ -22,7 +22,7 @@ namespace OuroborosEvents.MVVM.ViewModels
 
             List<Event>? events = App.EventRepo.GetEntities();
 
-            /*// Get a list of all events that the user attends
+            /*// Get a list of all events that the user attends IT DOESNT WORK DON'T UNCOMMENT PLEASE
             if (App.LoggedInUser.GetType() == typeof(Guest))
             {
                 foreach (Event e in events)

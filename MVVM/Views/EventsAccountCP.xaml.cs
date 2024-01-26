@@ -28,33 +28,33 @@ public partial class EventsAccountCP : ContentPage
             if (photo != null)
             {
                 // SAVE THE IMAGE
-                string photoPath = SaveImage(photo);
+                string photoPath = await SaveImage(photo);
                 Preferences.Set(PhotoPathKey, photoPath);
                 AccountCPProfilePicture.Source = ImageSource.FromFile(photoPath);
             }
         }
         else
         {
-            //IF something goes wrong. Not very likely to happen doe
+            // IF something goes wrong. Not very likely to happen though
             await Shell.Current.DisplayAlert("Oops", "Your device isn't supported", "Ok");
         }
     }
 
-    private string SaveImage(FileResult photo)
+    private async Task<string?> SaveImage(FileResult photo)
     {
-        // You can customize the directory and file name based on your requirements
-        string directory = FileSystem.AppDataDirectory;
-        string fileName = "profile_picture.jpg";
-        string filePath = Path.Combine(directory, fileName);
+        // Generate a unique file name using a Guid
+        string fileName = Guid.NewGuid().ToString("N") + ".jpg";
+        string filePath = Path.Combine(FileSystem.AppDataDirectory, fileName);
 
-        using (Stream stream = photo.OpenReadAsync().Result)
+        using (Stream stream = await photo.OpenReadAsync())
         {
             using (FileStream fileStream = File.Open(filePath, FileMode.Create))
             {
-                stream.CopyTo(fileStream);
+                await stream.CopyToAsync(fileStream);
             }
         }
 
         return filePath;
     }
 }
+
