@@ -11,7 +11,7 @@
             WidthRequest="150"
             HeightRequest="150"
             Margin="0,20,0,0">
-            <ImageButton Source="test_pfp.png"
+            <ImageButton Source="levi_default_pfp.png"
                          x:Name="AccountCPProfilePicture"
                          Clicked="ImageButton_Clicked"
                          HorizontalOptions="Center"
@@ -24,7 +24,7 @@
 
         <StackLayout>
             
-                <!-- Not yet databound  -->
+        <!-- Not yet databound  -->
         <Label Text="Levi Funk"
                HorizontalOptions="Center"
                FontSize="35"
@@ -87,6 +87,42 @@
                            Margin="20,0,0,0"/>
 
                     <Label Text="Koopacapey@gmail.com"
+                           FontFamily="PoppinsRegular"
+                           TextColor="{x:StaticResource Gray400}"
+                           Margin="20,0,0,0"/>
+                </StackLayout>
+            </Grid>
+
+            <Label  Text="Social accounts"
+                    FontSize="24"
+                    Margin="15,40,0,0"
+                    FontFamily="PoppinsBold" /> 
+            
+            <BoxView Color="{x:StaticResource Gray500}"
+                     HeightRequest="2"
+                     HorizontalOptions="Fill" 
+                     Margin="15,0,100,8"/>
+            
+            <Grid Margin="15,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Link}" Color="{x:StaticResource Primary}" />
+                    </Image.Source>
+                </Image>
+
+                <StackLayout Grid.Column="1">
+                    
+                    <Label Text="LinkedIn"
+                           FontSize="15"
+                           FontFamily="PoppinsBold"
+                           Margin="20,0,0,0"/>
+
+                    <Label Text="https://www.linkedin.com"
                            FontFamily="PoppinsRegular"
                            TextColor="{x:StaticResource Gray400}"
                            Margin="20,0,0,0"/>

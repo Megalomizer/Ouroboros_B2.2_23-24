@@ -1,4 +1,3 @@
-using Xamarin.Google.Crypto.Tink.Subtle;
 using OuroborosEvents.MVVM.ViewModels;
 using OuroborosEvents.MVVM.Models;
 

@@ -9,7 +9,7 @@ public partial class CreateNewEventCP : ContentPage
 		InitializeComponent();
 	}
 
-    private async void SaveEvent_btn(object sender, EventArgs e)
+    /*private async void SaveEvent_btn(object sender, EventArgs e)
     {
 		Guest guest = App.GuestRepo.GetEntity(3);
 
@@ -30,5 +30,5 @@ public partial class CreateNewEventCP : ContentPage
 		await Navigation.PopAsync();
 		await Navigation.PopAsync();
 		await Navigation.PushAsync(new EventsYourEventsCP());
-    }
+    }*/
 }
