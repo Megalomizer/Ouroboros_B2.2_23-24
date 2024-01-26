@@ -9,6 +9,7 @@
         <ToolbarItem
             x:Name="QR_Button"
             Clicked="QR_Button_Clicked"
+            IconImageSource="qr_code_scan.png"
             Order="Primary"
             Priority="0"/>
     </ContentPage.ToolbarItems>

@@ -57,7 +57,7 @@ public partial class EventsAccountCP : ContentPage
         return filePath;
     }
 
-    private void QR_Button_Clicked(object sender, EventArgs e)
+    private async void QR_Button_Clicked(object sender, EventArgs e)
     {
 
     }
