@@ -9,5 +9,10 @@ namespace OuroborosEvents.MVVM.ViewModels
 {
     public class YourAccountVM
     {
+        public User User { get; set; }
+        public YourAccountVM()
+        {
+            User = App.LoggedInUser;
+        }
     }
 }

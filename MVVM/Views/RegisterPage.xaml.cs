@@ -11,7 +11,7 @@ public partial class RegisterPage : ContentPage
 		InitializeComponent();
 	}
 
-    private void RegisterBtn_Clicked(object sender, EventArgs e)
+    private async void RegisterBtn_Clicked(object sender, EventArgs e)
     {
         // Check if email already exists
         List<Guest> AllGuests = App.GuestRepo.GetEntities();
@@ -26,6 +26,7 @@ public partial class RegisterPage : ContentPage
 
         // Check if password 1 and 2 are the same
         if (RegPasswordCheck.Text == RegPassword.Text)
+        {
             if (keepgoing)
             {
                 // Create guest
@@ -35,14 +36,15 @@ public partial class RegisterPage : ContentPage
                 guest.LastName = RegLastName.Text;
                 guest.Email = RegEMail.Text;
                 guest.Password = RegPassword.Text;
-                guest.PhoneNumber = 0623596545;
-            
+                guest.PhoneNumber = Int32.Parse(RegPhone.Text);
+
                 App.GuestRepo.SaveEntity(guest);
-                RegisterBtn.Text = "Success.";
+                await Navigation.PopAsync();
             }
+        }
         else
         {
-            RegisterBtn.Text = "Some details were wrong, or you have entered the same password twice.";
+            await DisplayAlert("Error", "Some details were wrong, or you have entered the same password twice.", "Ok");
         }
     }
 }

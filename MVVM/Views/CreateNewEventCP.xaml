@@ -17,8 +17,8 @@
         <TimePicker x:Name="EndingTime"/>
 
         <Button x:Name="CreateEvent"
-                Text="Save Event" />
-        <!--  Clicked="SaveEvent_btn"/> -->
+                Text="Save Event"
+                Clicked="SaveEvent_btn"/>
 
     </StackLayout>
     

@@ -56,9 +56,9 @@ namespace OuroborosEvents.MVVM.Views
                 // Couldnt log in
                 if(App.LoggedInUser == null)
                 {
-                    await SecureStorage.SetAsync("Username", null);
-                    await SecureStorage.SetAsync("Password", null);
-                    await SecureStorage.SetAsync("Type", null);
+                    SecureStorage.Remove("Username");
+                    SecureStorage.Remove("Password");
+                    SecureStorage.Remove("Type");
                 }
             }
         }
@@ -120,9 +120,9 @@ namespace OuroborosEvents.MVVM.Views
             }
         }
 
-        private void RegisterBtn_Clicked(object sender, EventArgs e)
+        private async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegisterPage());
+            await Navigation.PushAsync(new RegisterPage());
         }
     }
 }

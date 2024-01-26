@@ -10,21 +10,17 @@ public partial class CreateNewEventCP : ContentPage
 		InitializeComponent();
 	}
 
-	private void RefreshPreviousPage(object sender, EventArgs e)
-	{
-		var stack = Application.Current.MainPage.Navigation.NavigationStack;
-		var previousPageId = stack.Count - 2;
-		var previousPage = stack[previousPageId];
-		
-        if (previousPage is EventsYourEventsCP cp)
-            cp.ResetList(sender, e);
-    }
-
     private async void SaveEvent_btn(object sender, EventArgs e)
     {
-		Guest guest = App.GuestRepo.GetEntity(3);
+		Guest guest = null;
+		Organiser organiser = null;
 
-		Event _event = new Event
+        if (App.LoggedInUser.GetType() == typeof(Guest))
+			guest = App.GuestRepo.GetEntity(App.LoggedInUser.Id);
+        else if (App.LoggedInUser.GetType() == typeof(Organiser))
+			organiser = App.OrganiserRepo.GetEntity(App.LoggedInUser.Id);
+
+        Event _event = new Event
 		{
 			Name = Name.Text,
 			Description = Description.Text,
@@ -32,13 +28,29 @@ public partial class CreateNewEventCP : ContentPage
 			EndingDate = EndingDate.Date,
 			DailyOpeningTime = StartingTime.Time,
 			DailyClosingTime = EndingTime.Time,
-			EventGuests = [guest],
+			EventGuests = [],
 			OrganiserId = 0,
 			AddressId = 0,
 		};
+		
+		if(App.LoggedInUser.GetType() == typeof(Guest))
+            _event.EventGuests.Add(guest);
+		else if(App.LoggedInUser.GetType() == typeof(Organiser))
+			_event.OrganiserId = App.LoggedInUser.Id;
+
 		App.EventRepo.SaveEntity(_event);
 
-		RefreshPreviousPage(sender, e);
+		if(App.LoggedInUser.GetType() == typeof(Guest))
+		{
+			guest.EventEntries.Add(_event);
+			App.GuestRepo.SaveEntity(guest);
+		}
+		else if(App.LoggedInUser.GetType() == typeof(Organiser))
+		{
+			organiser.Events.Add(_event);
+			App.OrganiserRepo.SaveEntity(organiser);
+		}
+
 		await Navigation.PopAsync();
     }
 }

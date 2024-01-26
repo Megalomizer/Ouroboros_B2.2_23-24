@@ -8,7 +8,6 @@ public partial class EventsAccountCP : ContentPage
     public EventsAccountCP()
     {
         InitializeComponent();
-
         BindingContext = new YourAccountVM();
 
         // On startup, check if a photo path is stored in preferences and load it
@@ -57,9 +56,25 @@ public partial class EventsAccountCP : ContentPage
         return filePath;
     }
 
-    private async void LogoutButton_Clicked(object sender, EventArgs e)
+    private async void LogoutUser(object sender, EventArgs e)
     {
-        new MainPage();
+        string cancel = "Cancel";
+        string destruction = "Log out";
+        string useraction = await DisplayActionSheet("Are you sure you want to log out?", cancel, destruction);
+
+        if(useraction == destruction)
+        {
+            App.LoggedInUser = null;
+            SecureStorage.Remove("Username");
+            SecureStorage.Remove("Password");
+            SecureStorage.Remove("Type");
+            await Navigation.PopToRootAsync();
+        }
+    }
+
+    private void QR_Button_Clicked(object sender, EventArgs e)
+    {
+
     }
 }
 
