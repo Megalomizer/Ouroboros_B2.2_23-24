@@ -5,8 +5,8 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="10"
-            Padding="30,0"
+            Spacing="0"
+            Padding="0,0"
             VerticalOptions="Center">
 
             <Label
@@ -45,6 +45,13 @@
                 Text="Register"
                 Clicked="RegisterBtn_Clicked"
                 HorizontalOptions="Center" />
+
+            <Label
+                Text="By logging in you're agreeing to our Terms and Privacy Policy and are atleast 16 years old."
+                FontSize="Small"
+                TextColor="{x:StaticResource PrimaryDark}"
+                HorizontalTextAlignment="Center"
+                FontFamily="PoppinsRegular"/>
 
         </VerticalStackLayout>
     </ScrollView>
