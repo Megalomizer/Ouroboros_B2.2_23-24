@@ -24,8 +24,8 @@
 
         <StackLayout>
             
-                <!-- Not yet databound  -->
-        <Label Text="Levi Funk"
+        <!-- Not yet databound  -->
+        <Label Text="Levi"
                HorizontalOptions="Center"
                FontSize="35"
                Margin="0,5,0,0"

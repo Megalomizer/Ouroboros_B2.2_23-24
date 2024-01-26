@@ -34,9 +34,9 @@ namespace OuroborosEvents
             GuestRepo = guestRepo;
             OrganiserRepo = organiserRepo;
 
-            //MainPage = new NavigationPage(new MainPage()); 
+            MainPage = new NavigationPage(new MainPage()); 
 
-            MainPage = new NavigationPage(new EventsHomeTP()); // skips login
+            //MainPage = new NavigationPage(new EventsHomeTP()); // skips login
         }
     }
 }
