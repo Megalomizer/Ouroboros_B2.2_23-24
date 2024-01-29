@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.IO;
 
 namespace OuroborosEvents.MVVM.ViewModels
 {
@@ -19,6 +21,7 @@ namespace OuroborosEvents.MVVM.ViewModels
             User = App.LoggedInUser;
             if (User != null)
                 QrJson = System.Text.Json.JsonSerializer.Serialize<User>(User);
+            
 
         }
     }

@@ -13,7 +13,7 @@
                          HeightRequest="400" 
                          BarcodeHeight="400" 
                          BarcodeWidth="400"  
-                         BarcodeForeground="Red" 
+                         BarcodeForeground="Black" 
                          BarcodeFormat="QR_CODE" 
                          BarcodeMargin="5" 
                          Barcode="{Binding QrJson}"/>
