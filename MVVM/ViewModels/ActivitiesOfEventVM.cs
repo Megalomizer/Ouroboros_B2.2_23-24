@@ -12,9 +12,10 @@ namespace OuroborosEvents.MVVM.ViewModels
         public List<Activity>? Activities {  get; set; }
         public Event? Event { get; set; }
 
-        public ActivitiesOfEventVM()
+        public ActivitiesOfEventVM(Event _event)
         {
-            Activities = GetActivitiesByEvent(Event);
+            Event = _event;
+            Activities = GetActivitiesByEvent(_event);
         }
 
         public List<Activity>? GetActivitiesByEvent(Event _event)

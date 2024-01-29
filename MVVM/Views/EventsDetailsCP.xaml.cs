@@ -1,11 +1,12 @@
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.ViewModels;
+using System.Windows.Input;
 
 namespace OuroborosEvents.MVVM.Views;
 
 public partial class EventsDetailsCP : ContentPage
 {
-	public EventsDetailsCP()
+    public EventsDetailsCP()
 	{
 		InitializeComponent();
 	}
@@ -47,7 +48,8 @@ public partial class EventsDetailsCP : ContentPage
 
     private async void ShowAllActivities(object sender, EventArgs e)
     {
-        var eventData = sender as YourEventModelVM;
-        await Navigation.PushAsync(new ActivitiesOfEventCP() { BindingContext = eventData });
+        YourEventModelVM eventModel = (YourEventModelVM)BindingContext;
+        Event _event = eventModel.Event;
+        await Navigation.PushAsync(new ActivitiesOfEventCP(_event));
     }
 }

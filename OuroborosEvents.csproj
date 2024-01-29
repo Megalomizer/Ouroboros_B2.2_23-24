@@ -76,6 +76,9 @@
 	  <MauiXaml Update="MVVM\Views\ActivitiesOfEventCP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\ActivityCreationCP.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\ActivityDetailsCP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
