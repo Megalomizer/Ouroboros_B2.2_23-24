@@ -37,6 +37,7 @@ namespace OuroborosEvents
             builder.Services.AddSingleton<BaseRepository<Exhibitor>>();
             builder.Services.AddSingleton<BaseRepository<Guest>>();
             builder.Services.AddSingleton<BaseRepository<Organiser>>();
+            builder.Services.AddSingleton<BaseRepository<Ticket>>();
 
 #if DEBUG
             builder.Logging.AddDebug();

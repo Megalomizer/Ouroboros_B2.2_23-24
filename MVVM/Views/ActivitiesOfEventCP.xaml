@@ -8,7 +8,7 @@
         <StackLayout>
             <Label x:Name="EventId"
                    Text="{Binding Event.Id}"
-                   IsVisible="True"/>
+                   IsVisible="False"/>
 
             <ListView ItemsSource="{Binding Activities}"
                       RowHeight="200"

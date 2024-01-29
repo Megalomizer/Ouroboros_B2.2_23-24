@@ -38,5 +38,8 @@ namespace OuroborosEvents.MVVM.Models
 
         [ManyToMany((typeof(EventExhibit)), CascadeOperations = CascadeOperation.All)]
         public List<Exhibit>? Exhibits { get; set; } = null;
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Ticket>? Tickets { get; set; } = null;
     }
 }

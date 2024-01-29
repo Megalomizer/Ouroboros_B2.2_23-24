@@ -13,5 +13,8 @@ namespace OuroborosEvents.MVVM.Models
     {
         [ManyToMany((typeof(EventGuest)), CascadeOperations = CascadeOperation.All)]
         public List<Event>? EventEntries { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Ticket>? Tickets { get; set; }
     }
 }
