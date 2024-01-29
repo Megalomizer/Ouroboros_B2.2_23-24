@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.Repositories;
+using Plugin.LocalNotification;
 using UraniumUI;
 
 namespace OuroborosEvents
@@ -16,6 +17,7 @@ namespace OuroborosEvents
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
                 .UseUraniumUI()
+                .UseLocalNotification()
                 .UseUraniumUIMaterial()
                 .ConfigureFonts(fonts =>
                 {

@@ -9,6 +9,13 @@
         Padding="30"
         VerticalOptions="Center">
 
+        <Label
+            x:Name="KutTestDing"
+            FontSize="20"
+            VerticalOptions="Center">
+            
+        </Label>
+
         <cv:CameraView
             x:Name="QRCodeView"
             WidthRequest="500"
