@@ -47,7 +47,7 @@ public partial class EventsQRCameraViewCP : ContentPage
                 Title = $"{contactShared.FirstName} {contactShared.LastName}",
                 Subtitle = "You have succesfully scanned this QR code!",
                 Description = $"{contactInfo}",
-                BadgeNumber = 42,
+                BadgeNumber = 1,
             };
             LocalNotificationCenter.Current.Show(Test);
 
