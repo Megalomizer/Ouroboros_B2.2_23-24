@@ -11,5 +11,6 @@ namespace OuroborosEvents.MVVM.ViewModels
     {
         public Activity? Activity { get; set; }
         public Event? Event { get; set; }
+        public Exhibit? Exhibit { get; set; } = null;
     }
 }
