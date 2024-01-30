@@ -1,3 +1,6 @@
+using OuroborosEvents.MVVM.Models;
+using OuroborosEvents.MVVM.ViewModels;
+
 namespace OuroborosEvents.MVVM.Views;
 
 public partial class ActivityDetailsCP : ContentPage
@@ -6,4 +9,24 @@ public partial class ActivityDetailsCP : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void DeleteActivity(object sender, EventArgs e)
+    {
+        string cancel = "Cancel";
+        string destruction = "Delete";
+        string reply = await DisplayActionSheet("Are you sure you want to delete this activity?", cancel, destruction);
+        
+        if (reply == destruction)
+        {
+            var activityModel = BindingContext as ActivityDetailsVM;
+            Activity activity = App.ActivityRepo.GetEntity(activityModel.Activity.Id);
+            App.ActivityRepo.DeleteEntity(activity);
+            await Navigation.PopAsync();
+        }
+    }
+
+    private async void EditActivity(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ActivityEditCP() { BindingContext = sender as ActivityDetailsVM });
+    }
 }

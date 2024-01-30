@@ -16,8 +16,33 @@ public partial class ActivitiesOfEventCP : ContentPage
     private void SelectedActivity(object sender, EventArgs e)
     {
 		var viewCell = sender as ViewCell;
-		var tappedItem = viewCell.BindingContext as ActivityDetailsVM;
-		Navigation.PushAsync(new ActivityDetailsCP() { BindingContext = tappedItem });
+
+		Activity activity = viewCell.BindingContext as Activity;
+		if (activity == null)
+			return;
+
+		ActivityDetailsVM vm = new ActivityDetailsVM()
+		{
+			Activity = activity,
+			Event = new Event(),
+			Exhibit = new Exhibit()
+		};
+
+        Event _event = new Event();
+		if (activity.EventId != null)
+		{
+			_event = App.EventRepo.GetEntity((int)activity.EventId);
+			vm.Event = _event;
+		}
+
+		Exhibit exhibit = new Exhibit();
+		if (activity.ExhibitId != null)
+		{
+			exhibit = App.ExhibitRepo.GetEntity((int)activity.ExhibitId);
+			vm.Exhibit = exhibit;
+		}
+
+		Navigation.PushAsync(new ActivityDetailsCP() { BindingContext = vm });
     }
 
     private async void AddNewActivity(object sender, EventArgs e)
@@ -25,11 +50,10 @@ public partial class ActivitiesOfEventCP : ContentPage
 		await Navigation.PushAsync(new ActivityCreationCP(Event));
     }
 
-	private async void ResetList(object sender, EventArgs e)
+	private void ResetList(object sender, EventArgs e)
 	{
 		BindingContext = null;
 		BindingContext = new ActivitiesOfEventVM(Event);
 		ActivitiesList.IsRefreshing = false;
-
     }
 }

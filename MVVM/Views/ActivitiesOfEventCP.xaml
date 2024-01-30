@@ -4,81 +4,81 @@
              x:Class="OuroborosEvents.MVVM.Views.ActivitiesOfEventCP"
              Title="All Activities">
 
-    <ScrollView>
-        <StackLayout Spacing="10"
+    <StackLayout Spacing="10"
                      Margin="5,0,5,0">
-            <Label x:Name="EventId"
+        <Label x:Name="EventId"
                    Text="{Binding Event.Id}"
                    IsVisible="False"/>
 
-            <Button x:Name="AddNewActivityButton"
-                    Text="Add Activity"
-                    HeightRequest="40"
-                    Clicked="AddNewActivity"
-                    FontSize="16"
-                    Margin="5,10,5,10"/>
-
-            <ListView x:Name="ActivitiesList"
+        <Button x:Name="AddNewActivityButton"
+                Text="Add Activity"
+                HeightRequest="40"
+                WidthRequest="300"
+                CornerRadius="15"
+                Clicked="AddNewActivity"
+                FontSize="16"
+                Margin="5,10,5,10"/>
+        
+        <ListView x:Name="ActivitiesList"
                       ItemsSource="{Binding Activities}"
                       RowHeight="75"
                       IsPullToRefreshEnabled="True"
                       Refreshing="ResetList"
                       SeparatorVisibility="None"
                       SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell Tapped="SelectedActivity">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Tapped="SelectedActivity">
 
-                            <Border BackgroundColor="{x:StaticResource Tertiary}"
+                        <Border BackgroundColor="{x:StaticResource Tertiary}"
                                     Margin="0,5,0,5">
 
-                                <Grid Margin="5,5,5,5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="0"/>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition Height="25"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="250"/>
-                                        <ColumnDefinition Width="150"/>
-                                    </Grid.ColumnDefinitions>
+                            <Grid Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="250"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
 
-                                    <Label x:Name="ActivityId"
+                                <Label x:Name="ActivityId"
                                            Text="{Binding Id}"
                                            IsVisible="False"/>
 
-                                    <Label x:Name="ActivityName"
+                                <Label x:Name="ActivityName"
                                            Text="{Binding Name}"
                                            Grid.Row="1"
                                            FontAttributes="Bold"
                                            FontSize="18"/>
 
-                                    <Label x:Name="ActivityExhibition"
+                                <Label x:Name="ActivityExhibition"
                                            Text="{Binding ExhibitId}"
                                            Grid.Row="1"
                                            Grid.Column="1"
                                            FontSize="16"/>
 
-                                    <Label x:Name="ActivityDateTime"
+                                <Label x:Name="ActivityDateTime"
                                            Text="{Binding StartDateTime}"
                                            Grid.Row="2"
                                            FontSize="16"/>
 
-                                    <Label x:Name="ActivityDuration"
+                                <Label x:Name="ActivityDuration"
                                            Text="{Binding Duration}"
                                            Grid.Row="2"
                                            Grid.Column="1"
                                            FontSize="16"/>
 
-                                </Grid>
+                            </Grid>
 
-                            </Border>
+                        </Border>
 
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ScrollView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 
 </ContentPage>

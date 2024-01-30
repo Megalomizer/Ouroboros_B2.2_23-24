@@ -12,6 +12,7 @@
                 FontSize="16"
                 WidthRequest="200"
                 CornerRadius="15"
+                Margin="0,10,0,10"
                 HorizontalOptions="Center"
                 Clicked="CreateEventButton"/>
 
