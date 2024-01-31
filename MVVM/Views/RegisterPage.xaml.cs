@@ -21,7 +21,7 @@ public partial class RegisterPage : ContentPage
 
         if (AllGuests.FirstOrDefault(g => g.Email == currentemail) != default(Guest))
         {
-            RegisterBtn.Text = "Email already exist";
+            await DisplayAlert("Error", "This Email is already registered.", "Ok");
             createuser = false;
         }
 
@@ -31,12 +31,12 @@ public partial class RegisterPage : ContentPage
         {
             if (deserializedResponse.IsDisposable is true)
             {
-                RegisterBtn.Text = "This is a disposable Email.";
+                await DisplayAlert("Error", "You have entered a disposable Email Adress. Please enter your real Email.", "Ok");
                 createuser = false;
             }
             if (deserializedResponse.IsValid is false)
             {
-                RegisterBtn.Text = "This is not a valid Email.";
+                await DisplayAlert("Error", "You have entered an invalid Email Adress.", "Ok");
                 createuser = false;
             }
         }
@@ -47,7 +47,7 @@ public partial class RegisterPage : ContentPage
         {
             if (createuser)
             {
-                // Create guest
+                // Create user
                 Guest guest = new Guest();
 
                 guest.FirstName = RegFirstName.Text;
@@ -62,7 +62,7 @@ public partial class RegisterPage : ContentPage
         }
         else
         {
-            await DisplayAlert("Error", "Some details were wrong, or you have entered the same password twice.", "Ok");
+            await DisplayAlert("Error", "Something was left open, or you made a mistake in your password confirmation.", "Ok");
         }
     }
 }
