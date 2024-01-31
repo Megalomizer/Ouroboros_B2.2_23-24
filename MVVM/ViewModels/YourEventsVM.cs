@@ -16,7 +16,6 @@ namespace OuroborosEvents.MVVM.ViewModels
             Events = GetYourEvents();
         }
 
-        // Needs to make use of the EventGuest table!
         private List<YourEventModelVM> GetYourEvents()
         {
             List<YourEventModelVM>? yourEvents = new List<YourEventModelVM>();

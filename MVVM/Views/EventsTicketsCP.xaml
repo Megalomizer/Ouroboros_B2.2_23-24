@@ -8,19 +8,67 @@
 
     <VerticalStackLayout>
 
-        <CV:BarcodeImage x:Name="QRcodeReader"
-                         WidthRequest="400"
-                         HeightRequest="400" 
-                         BarcodeHeight="400" 
-                         BarcodeWidth="400"  
-                         BarcodeForeground="Black" 
-                         BarcodeFormat="QR_CODE" 
-                         BarcodeMargin="5" 
-                         Barcode="{Binding QrJson}"/>
-        <Button
-            Text="Go to QR Page"
-            x:Name="QRTESTBUTTON"
-            Clicked="QRTESTBUTTON_Clicked">
-        </Button>
+        <ListView ItemsSource="{Binding Events}"
+                  x:Name="ListViewEvents"
+                  RowHeight="70"
+                  WidthRequest="340"
+                  SelectionMode="None"
+                  SeparatorVisibility="None"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="ResetList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Tapped="EventSelected">
+                        <Border BackgroundColor="{x:StaticResource Tertiary}"
+                                Margin="0,5,0,5"
+                                HeightRequest="60">
+                            
+                            <Grid Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="160"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="EventId"
+                                       Text="{Binding Event.Id}"
+                                       IsVisible="False"/>
+                                
+                                <Label x:Name="EventName"
+                                       Text="{Binding Event.Name}"
+                                       Grid.Row="1"
+                                       FontAttributes="Bold"
+                                       FontSize="18"/>
+                                
+                                <Label x:Name="EventAddress"                               
+                                       Text="{Binding Address.PostalCode}"
+                                       Grid.Row="1"
+                                       Grid.Column="1"
+                                       FontSize="16"/>
+                                
+                                <Label x:Name="StartingDate"
+                                       Text="{Binding Event.StartingDate}"
+                                       Grid.Row="2"
+                                       FontSize="16"/>
+                                
+                                <Label x:Name="EndingDate"
+                                       Text="{Binding Event.EndingDate}"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       FontSize="16"/>
+
+                            </Grid>
+
+                        </Border>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </VerticalStackLayout>
 </ContentPage>

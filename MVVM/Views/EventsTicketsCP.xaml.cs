@@ -1,22 +1,28 @@
+using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.ViewModels;
 
-namespace OuroborosEvents.MVVM.Views;
-
-public partial class EventsTicketsCP : ContentPage
+namespace OuroborosEvents.MVVM.Views
 {
-	public EventsTicketsCP()
+	public partial class EventsTicketsCP : ContentPage
 	{
-		InitializeComponent();
-		BindingContext = new EventTicketQRVM();
+		public EventsTicketsCP()
+		{
+			InitializeComponent();
+			BindingContext = new EventTicketsVM();
+		}
+
+		private async void EventSelected(object sender, EventArgs e)
+		{
+			var viewCell = sender as ViewCell;
+			YourEventModelVM tappedCell = viewCell.BindingContext as YourEventModelVM;
+			await Navigation.PushAsync(new EventsDetailsCP(tappedCell) { BindingContext = tappedCell });
+		}
+
+		private void ResetList(object sender, EventArgs e)
+		{
+			BindingContext = null;
+			BindingContext = new EventTicketsVM();
+			ListViewEvents.IsRefreshing = false;
+		}
 	}
-
-    private void CameraView_CamerasLoaded(object sender, EventArgs e)
-    {
-
-    }
-
-    private async void QRTESTBUTTON_Clicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new EventsQRCodeCP());
-    }
 }

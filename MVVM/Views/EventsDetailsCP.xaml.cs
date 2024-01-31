@@ -73,7 +73,26 @@ public partial class EventsDetailsCP : ContentPage
 
     private void GetEventTicket(object sender, EventArgs e)
     {
+        // Check if already user owns a ticket
+        EventGuest eventGuest = null;
 
+        List<EventGuest> eventGuests = App.EventGuestRepo.GetEntities();
+        foreach (EventGuest eg in eventGuests)
+        {
+            if (eg.EventId == EventModel.Event.Id && eg.GuestId == App.LoggedInUser.Id)
+            {
+                if(eg.HasTicket == true)
+                    return;
+
+                eventGuest = eg;
+            }
+        }
+
+        if (eventGuest == null)
+            return;
+
+        eventGuest.HasTicket = true;
+        App.EventGuestRepo.SaveEntity(eventGuest);
     }
 
     private async void DeleteEvent(object sender, EventArgs e)
