@@ -14,4 +14,9 @@ public partial class EventsTicketsCP : ContentPage
     {
 
     }
+
+    private async void QRTESTBUTTON_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new EventsQRCodeCP());
+    }
 }

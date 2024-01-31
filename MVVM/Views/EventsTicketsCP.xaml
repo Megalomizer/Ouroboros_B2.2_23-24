@@ -17,6 +17,10 @@
                          BarcodeFormat="QR_CODE" 
                          BarcodeMargin="5" 
                          Barcode="{Binding QrJson}"/>
-
+        <Button
+            Text="Go to QR Page"
+            x:Name="QRTESTBUTTON"
+            Clicked="QRTESTBUTTON_Clicked">
+        </Button>
     </VerticalStackLayout>
 </ContentPage>

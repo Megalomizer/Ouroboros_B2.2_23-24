@@ -2,11 +2,79 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.EventsQRCodeCP"
-             Title="EventsQRCodeCP">
+             xmlns:CV="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             Title="Mobile Ticket">
     <VerticalStackLayout>
-        <Label 
-            Text="Page to display all QR codes"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <!-- Using a boxview to add padding for the top of the screen -->
+        <BoxView HeightRequest="50" BackgroundColor="Transparent"/>
+        <StackLayout
+            BackgroundColor="{x:StaticResource Gray200}">
+            
+        <!-- QR code (Has to be databound) -->
+        <CV:BarcodeImage x:Name="QRcodeReader"
+                  WidthRequest="200"
+                  HeightRequest="240" 
+                  BarcodeHeight="200" 
+                  BarcodeWidth="200"  
+                  BarcodeForeground="Black" 
+                  BarcodeFormat="QR_CODE" 
+                  BarcodeMargin="5" 
+                  Barcode="It is here"/>
+        
+        <!-- Data bind this to event title -->
+        <Label
+            Text="Standard comic con ticket"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            WidthRequest="350"
+            Margin="0,10,0,0"
+            FontSize="32"
+            LineBreakMode="WordWrap">
+        </Label>
+        
+        <!-- Potential day dat a binding? Also still needs to be done -->
+        <Label
+            Text="Monday"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            WidthRequest="350"
+            Margin="0,0,0,0"
+            FontSize="30"
+            LineBreakMode="WordWrap">   
+        </Label>
+        
+        <!-- Price data binding (still needs to be done) -->
+        <Label
+            Text="- $24.99 (1/1)"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            WidthRequest="350"
+            Margin="0,0,0,0"
+            FontSize="30"
+            LineBreakMode="WordWrap">
+        </Label>
+
+        <!-- Title of event -->
+        <Label
+            Text="Comic con brussles 2023 (Fall)"
+            HorizontalOptions="Center"
+            WidthRequest="350"
+            FontAttributes="Bold"
+            Margin="0,10,0,0"
+            FontSize="15"
+            LineBreakMode="WordWrap">
+        </Label>
+
+        <!-- Name of buyer -->
+        <Label
+            Text="Levi Funk"
+            HorizontalOptions="Center"
+            WidthRequest="350"
+            Margin="0,0,0,0"
+            FontSize="15"
+            LineBreakMode="WordWrap">
+        </Label>
+            <BoxView HeightRequest="50" BackgroundColor="Transparent"/>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

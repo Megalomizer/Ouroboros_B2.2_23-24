@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.IO;
 using Plugin.LocalNotification.AndroidOption;
 using OuroborosEvents.MVVM.Models;
+using Plugin.LocalNotification.EventArgs;
 
 namespace OuroborosEvents.MVVM.Views;
 
@@ -12,8 +13,25 @@ public partial class EventsQRCameraViewCP : ContentPage
 	public EventsQRCameraViewCP()
 	{
 		InitializeComponent();
+        LocalNotificationCenter.Current.NotificationActionTapped +=
+            Current_NotificationActionTapped;
 	}
 
+    //This doesn't work btw lmao. I should find out why.
+    public void Current_NotificationActionTapped(NotificationActionEventArgs e)
+    {
+        if (e.IsTapped) 
+        {
+            MainThread.BeginInvokeOnMainThread(async() =>
+            {
+                await Navigation.PushAsync(new EventsDiscoverCP());
+            });
+            
+        }
+    }
+
+    
+    
     private void QRCodeView_CamerasLoaded(object sender, EventArgs e)
     {
         if (QRCodeView.Cameras.Count > 0) 
