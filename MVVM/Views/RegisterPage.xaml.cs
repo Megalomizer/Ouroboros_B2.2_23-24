@@ -1,5 +1,6 @@
 using OuroborosEvents.MVVM.Models;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Reflection.Metadata.Ecma335;
 
 namespace OuroborosEvents.MVVM.Views;
@@ -16,20 +17,37 @@ public partial class RegisterPage : ContentPage
         // Check if email already exists
         List<Guest> AllGuests = App.GuestRepo.GetEntities();
         string currentemail = RegEMail.Text;
-        bool keepgoing = true;
+        bool createuser = true;
 
         if (AllGuests.FirstOrDefault(g => g.Email == currentemail) != default(Guest))
         {
-            RegisterBtn.Text = "Email already exists.";
-            keepgoing = false;
+            await DisplayAlert("Error", "This Email is already registered.", "Ok");
+            createuser = false;
         }
+
+        // Check if email is valid and non-disposable
+        VerificationAPI deserializedResponse = await VerificationAPI.VerifyEmailAsync(currentemail);
+        if (deserializedResponse != null)
+        {
+            if (deserializedResponse.IsDisposable is true)
+            {
+                await DisplayAlert("Error", "You have entered a disposable Email Adress. Please enter your real Email.", "Ok");
+                createuser = false;
+            }
+            if (deserializedResponse.IsValid is false)
+            {
+                await DisplayAlert("Error", "You have entered an invalid Email Adress.", "Ok");
+                createuser = false;
+            }
+        }
+
 
         // Check if password 1 and 2 are the same
         if (RegPasswordCheck.Text == RegPassword.Text)
         {
-            if (keepgoing)
+            if (createuser)
             {
-                // Create guest
+                // Create user
                 Guest guest = new Guest();
 
                 guest.FirstName = RegFirstName.Text;
@@ -44,7 +62,7 @@ public partial class RegisterPage : ContentPage
         }
         else
         {
-            await DisplayAlert("Error", "Some details were wrong, or you have entered the same password twice.", "Ok");
+            await DisplayAlert("Error", "Something was left open, or you made a mistake in your password confirmation.", "Ok");
         }
     }
 }

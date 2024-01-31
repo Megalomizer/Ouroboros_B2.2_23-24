@@ -5,22 +5,32 @@ namespace OuroborosEvents.MVVM.Views;
 
 public partial class EditEventCP : ContentPage
 {
-	public EditEventCP()
+	public YourEventModelVM YourEventModelVM { get; set; }
+	public EditEventCP(YourEventModelVM yourEventModelVM)
 	{
 		InitializeComponent();
+		YourEventModelVM = yourEventModelVM;
 	}
 
     private async void UpdateEvent_Clicked(object sender, EventArgs e)
     {
-		var uneditedEvent = sender as YourEventModelVM;
+		var uneditedEvent = YourEventModelVM;
 		Event _event = new Event()
 		{
+			Id = uneditedEvent.Event.Id,
+
 			Name = Name.Text,
 			Description = Description.Text,
 			StartingDate = StartingDate.Date,
 			EndingDate = EndingDate.Date,
 			DailyOpeningTime = StartingTime.Time,
 			DailyClosingTime = EndingTime.Time,
+
+			EventGuests = uneditedEvent.Event.EventGuests,
+			Activities = uneditedEvent.Event.Activities,
+			AddressId = uneditedEvent.Event.AddressId,
+			Exhibits = uneditedEvent.Event.Exhibits,
+			OrganiserId = uneditedEvent.Event.OrganiserId
 		};
 
 		if (_event.Name == null || _event.Name == "")

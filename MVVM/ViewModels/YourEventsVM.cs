@@ -16,6 +16,7 @@ namespace OuroborosEvents.MVVM.ViewModels
             Events = GetYourEvents();
         }
 
+        // Needs to make use of the EventGuest table!
         private List<YourEventModelVM> GetYourEvents()
         {
             List<YourEventModelVM>? yourEvents = new List<YourEventModelVM>();
@@ -27,11 +28,21 @@ namespace OuroborosEvents.MVVM.ViewModels
             {
                 Guest guest = App.GuestRepo.GetEntity(App.LoggedInUser.Id);
 
-                foreach(Event event_ in guest.EventEntries)
+                List<EventGuest> eventGuests = App.EventGuestRepo.GetEntities();
+                foreach(EventGuest eg in eventGuests)
                 {
-                    Address address = App.AddressRepo.GetEntity(event_.AddressId);
-                    yourEvents.Add(new YourEventModelVM() { Event = event_, Address = address });
+                    if(eg.GuestId == guest.Id)
+                    {
+                        Event ev = App.EventRepo.GetEntity(eg.EventId);
+                        YourEventModelVM vm = new YourEventModelVM()
+                        {
+                            Event = ev,
+                            Address = App.AddressRepo.GetEntity(ev.AddressId)
+                        };
+                        yourEvents.Add(vm);
+                    }
                 }
+
             } // Get a list of all events the organiser owns
             else if (App.LoggedInUser.GetType() == typeof(Organiser))
             {

@@ -12,14 +12,6 @@ public partial class CreateNewEventCP : ContentPage
 
     private async void SaveEvent_btn(object sender, EventArgs e)
     {
-		Guest guest = null;
-		Organiser organiser = null;
-
-        if (App.LoggedInUser.GetType() == typeof(Guest))
-			guest = App.GuestRepo.GetEntity(App.LoggedInUser.Id);
-        else if (App.LoggedInUser.GetType() == typeof(Organiser))
-			organiser = App.OrganiserRepo.GetEntity(App.LoggedInUser.Id);
-
         Event _event = new Event
 		{
 			Name = Name.Text,
@@ -32,22 +24,16 @@ public partial class CreateNewEventCP : ContentPage
 			OrganiserId = 0,
 			AddressId = 0,
 		};
-		
-		if(App.LoggedInUser.GetType() == typeof(Guest))
-            _event.EventGuests.Add(guest);
-		else if(App.LoggedInUser.GetType() == typeof(Organiser))
+
+		if(App.LoggedInUser.GetType() == typeof(Organiser))
 			_event.OrganiserId = App.LoggedInUser.Id;
 
-		App.EventRepo.SaveEntity(_event);
+        App.EventRepo.SaveEntity(_event);
 
-		if(App.LoggedInUser.GetType() == typeof(Guest))
+		if(App.LoggedInUser.GetType() == typeof(Organiser))
 		{
-			guest.EventEntries.Add(_event);
-			App.GuestRepo.SaveEntity(guest);
-		}
-		else if(App.LoggedInUser.GetType() == typeof(Organiser))
-		{
-			organiser.Events.Add(_event);
+            Organiser organiser = App.OrganiserRepo.GetEntity(App.LoggedInUser.Id);
+            organiser.Events.Add(_event);
 			App.OrganiserRepo.SaveEntity(organiser);
 		}
 
