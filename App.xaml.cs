@@ -17,14 +17,12 @@ namespace OuroborosEvents
         public static BaseRepository<Exhibitor>? ExhibitorRepo { get; private set; }
         public static BaseRepository<Guest>? GuestRepo { get; private set; }
         public static BaseRepository<Organiser>? OrganiserRepo { get; private set; }
-        public static BaseRepository<Ticket>? TicketRepo { get; private set; }
 
 
         public App(BaseRepository<Activity> activityRepo, BaseRepository<Address> addressRepo,
             BaseRepository<Event> eventRepo, BaseRepository<EventGuest> eventGuestRepo,
             BaseRepository<Exhibit> exhibitRepo, BaseRepository<Exhibitor> exhibitorRepo,
-            BaseRepository<Guest> guestRepo, BaseRepository<Organiser> organiserRepo,
-            BaseRepository<Ticket> ticketRepo)
+            BaseRepository<Guest> guestRepo, BaseRepository<Organiser> organiserRepo)
         {
             InitializeComponent();
 
@@ -36,7 +34,6 @@ namespace OuroborosEvents
             ExhibitorRepo = exhibitorRepo;
             GuestRepo = guestRepo;
             OrganiserRepo = organiserRepo;
-            TicketRepo = ticketRepo;
 
             MainPage = new NavigationPage(new MainPage()); 
         }

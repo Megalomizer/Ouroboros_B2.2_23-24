@@ -27,8 +27,8 @@ namespace OuroborosEvents.MVVM.Models
         [ForeignKey(typeof(Organiser))]
         public int OrganiserId { get; set; }
 
-        [ManyToMany((typeof(EventGuest)), CascadeOperations = CascadeOperation.All)]
-        public List<Guest>? EventGuests { get; set; } = null;
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<EventGuest>? EventGuests { get; set; } = null;
 
         [ForeignKey(typeof(Address))]
         public int AddressId { get; set; }
@@ -38,8 +38,5 @@ namespace OuroborosEvents.MVVM.Models
 
         [ManyToMany((typeof(EventExhibit)), CascadeOperations = CascadeOperation.All)]
         public List<Exhibit>? Exhibits { get; set; } = null;
-
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Ticket>? Tickets { get; set; } = null;
     }
 }

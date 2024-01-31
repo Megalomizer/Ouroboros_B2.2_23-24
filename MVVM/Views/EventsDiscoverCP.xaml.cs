@@ -4,19 +4,17 @@ namespace OuroborosEvents.MVVM.Views;
 
 public partial class EventsDiscoverCP : ContentPage
 {
-	public YourEventsVM viewModel { get; set; }
-
 	public EventsDiscoverCP()
 	{
 		InitializeComponent();
-		BindingContext = new YourEventsVM();
+		BindingContext = new AllEventsVM();
 	}
 
 	private async void EventSelected(object sender, EventArgs e)
 	{
 		var viewCell = sender as ViewCell;
 		YourEventModelVM tappedCell = viewCell.BindingContext as YourEventModelVM;
-		await Navigation.PushAsync(new EventsDetailsCP() { BindingContext = tappedCell });
+		await Navigation.PushAsync(new EventsDetailsCP(tappedCell) { BindingContext = tappedCell });
 	}
 
 	private async void CreateEventButton(object sender, EventArgs e)
@@ -26,9 +24,8 @@ public partial class EventsDiscoverCP : ContentPage
 
 	private void ResetList(object sender, EventArgs e)
 	{
-		viewModel = new YourEventsVM();
 		BindingContext = null;
-		BindingContext = viewModel;
+		BindingContext = new AllEventsVM();
 		ListViewEvents.IsRefreshing = false;
 	}
 }

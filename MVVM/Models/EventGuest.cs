@@ -18,6 +18,7 @@ namespace OuroborosEvents.MVVM.Models
         [ForeignKey(typeof(Guest))]
         public int GuestId { get; set; }
 
-        // Set favorite/interested?
+        public bool HasTicket { get; set; } = false;
+        public bool TicketIsScanned { get; set; } = false;
     }
 }
