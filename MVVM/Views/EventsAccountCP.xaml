@@ -7,6 +7,7 @@
              Title="EventsAccountCP"
              NavigationPage.HasBackButton="False">
     
+    <!--For buttons in the top row-->
     <ContentPage.ToolbarItems>
         <ToolbarItem
             x:Name="QR_Button"
@@ -15,8 +16,10 @@
             Order="Primary"
             Priority="0"/>
     </ContentPage.ToolbarItems>
-    
+
+    <ScrollView>
     <VerticalStackLayout>
+        <!--Profile picture-->
         <Frame
             CornerRadius="100"
             WidthRequest="150"
@@ -38,7 +41,8 @@
             <HorizontalStackLayout Spacing="5"
                                    Margin="0,5,0,0"
                                    HorizontalOptions="Center">
-
+                
+                <!--All general information-->
                 <Label x:Name="Firstname"
                        Text="{Binding User.FirstName}"
                        FontSize="35"
@@ -157,7 +161,8 @@
                     FontSize="18"
                     HeightRequest="50"
                     Clicked="LogoutUser"/>
-
-        </StackLayout>
+                
+            </StackLayout>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
