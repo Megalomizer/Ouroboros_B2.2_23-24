@@ -6,6 +6,7 @@ namespace OuroborosEvents.MVVM.Views;
 public partial class EditEventCP : ContentPage
 {
 	public YourEventModelVM YourEventModelVM { get; set; }
+
 	public EditEventCP(YourEventModelVM yourEventModelVM)
 	{
 		InitializeComponent();

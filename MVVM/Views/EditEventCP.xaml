@@ -4,21 +4,28 @@
              x:Class="OuroborosEvents.MVVM.Views.EditEventCP"
              Title="Edit Event">
     
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="10" Margin="10,0,10,0">
 
         <Entry x:Name="Name"
-               Text="{Binding Event.Name}"/>
+               Text="{Binding YourEventModelVM.Event.Name}"/>
         <Editor x:Name="Description"
                 Text="{Binding Event.Description}"
+                Placeholder="Description"
                 HeightRequest="100"/>
         <DatePicker x:Name="StartingDate"
-                    Date="{Binding Event.StartingDate}"/>
+                    Date="{Binding YourEventModelVM.Event.StartingDate}"/>
         <TimePicker x:Name="StartingTime"
-                    Time="{Binding Event.DailyOpeningTime}"/>
+                    Time="{Binding YourEventModelVM.Event.DailyOpeningTime}"/>
         <DatePicker x:Name="EndingDate"
-                    Date="{Binding Event.EndingDate}"/>
+                    Date="{Binding YourEventModelVM.Event.EndingDate}"/>
         <TimePicker x:Name="EndingTime"
-                    Time="{Binding Event.DailyClosingTime}"/>
+                    Time="{Binding YourEventModelVM.Event.DailyClosingTime}"/>
+
+        <Picker x:Name="AddressPicker"
+                Title="Select an Address"
+                ItemsSource="{Binding Addresses}"
+                ItemDisplayBinding="{Binding PostalCode}"
+                SelectedItem="{Binding YourEventModelVM.Address.PostalCode}"/>
 
         <Button x:Name="UpdateEvent"
                 Text="Save Event"

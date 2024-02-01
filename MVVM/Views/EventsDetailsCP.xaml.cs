@@ -113,7 +113,8 @@ public partial class EventsDetailsCP : ContentPage
     {
         var eventData = BindingContext;
         YourEventModelVM vm = eventData as YourEventModelVM;
-        await Navigation.PushAsync(new EditEventCP(vm) { BindingContext = vm });
+        EditEventModel em = new EditEventModel() { YourEventModelVM = vm, Addresses = App.AddressRepo.GetEntities() };
+        await Navigation.PushAsync(new EditEventCP(vm) { BindingContext = em });
     }
 
     private async void ShowAllActivities(object sender, EventArgs e)
