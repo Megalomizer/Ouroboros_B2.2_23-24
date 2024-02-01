@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OuroborosEvents.MVVM.Models
+namespace OuroborosEvents.Abstractions
 {
     public class VerificationAPI
     {

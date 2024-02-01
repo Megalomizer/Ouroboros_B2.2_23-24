@@ -1,4 +1,5 @@
 using OuroborosEvents.MVVM.Models;
+using OuroborosEvents.Abstractions;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Reflection.Metadata.Ecma335;
