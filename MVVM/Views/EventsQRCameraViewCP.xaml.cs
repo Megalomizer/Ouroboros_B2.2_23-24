@@ -59,14 +59,32 @@ public partial class EventsQRCameraViewCP : ContentPage
 
             User contactShared = JsonSerializer.Deserialize<User>(contactInfo);
 
+            if (contactShared == null)
+                return;
+
+            if (contactShared.FirstName == null)
+                contactShared.FirstName = "Unkown";
+            if (contactShared.LastName == null)
+                contactShared.LastName = "Unkown";
+            if (contactShared.Email == null)
+                contactShared.Email = "Unkown";
+            if (contactShared.LinkedIn == null)
+                contactShared.LinkedIn = "Unkown";
+
+            string description = $"Name: {contactShared.FirstName} {contactShared.LastName}\n" 
+                                 + $"Email: {contactShared.Email}\n"
+                                 + $"Phonenumber: {contactShared.PhoneNumber}\n"
+                                 + $"LinkedIn: {contactShared.LinkedIn}\n";
+
             var Test = new NotificationRequest
             {
                 NotificationId = 50,
-                Title = $"{contactShared.FirstName} {contactShared.LastName}",
-                Subtitle = "You have succesfully scanned this QR code!",
-                Description = $"{contactInfo}",  
+                Title = $"You have succesfully scanned this QR code!",
+                Subtitle = "Zuyd Events",
+                Description = description,  
                 BadgeNumber = 1,
             };
+
             LocalNotificationCenter.Current.Show(Test);
 
             await Navigation.PopAsync();
