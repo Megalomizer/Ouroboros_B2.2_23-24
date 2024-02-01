@@ -35,7 +35,18 @@ namespace OuroborosEvents
             GuestRepo = guestRepo;
             OrganiserRepo = organiserRepo;
 
-            MainPage = new NavigationPage(new MainPage()); 
+            MainPage = new NavigationPage(new MainPage());
+
+            // Create Zuyd Address
+            Address ZuydAddress = new Address
+            {
+                City = "Heerlen",
+                CountryCode = "NL",
+                HouseNumber = "300",
+                PostalCode = "6419DJ",
+                Street = "Nieuw Eyckholt"
+            };
+            addressRepo.SaveEntity(ZuydAddress);
         }
     }
 }

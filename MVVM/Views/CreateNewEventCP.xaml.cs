@@ -12,7 +12,7 @@ public partial class CreateNewEventCP : ContentPage
 
     private async void SaveEvent_btn(object sender, EventArgs e)
     {
-        Event _event = new Event
+		Event _event = new Event
 		{
 			Name = Name.Text,
 			Description = Description.Text,
@@ -25,7 +25,17 @@ public partial class CreateNewEventCP : ContentPage
 			AddressId = 0,
 		};
 
-		if(App.LoggedInUser.GetType() == typeof(Organiser))
+        // Change address to Zuyd Address
+        List<Address> addresses = App.AddressRepo.GetEntities();
+        foreach (Address a in addresses)
+        {
+            if (a.PostalCode == "6419DJ")
+            {
+                _event.AddressId = a.Id;
+            }
+        }
+
+        if (App.LoggedInUser.GetType() == typeof(Organiser))
 			_event.OrganiserId = App.LoggedInUser.Id;
 
         App.EventRepo.SaveEntity(_event);

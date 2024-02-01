@@ -162,12 +162,19 @@
                     HeightRequest="50"
                     Clicked="LogoutUser"/>
 
-            <Button x:Name="EditAccountButton"
-                Text="Edit Account"
-                Margin="0,10,0,0"
-                FontSize="18"
-                HeightRequest="50"
-                Clicked="EditAccountButton_Clicked"/>
+                <HorizontalStackLayout HorizontalOptions="Center" Margin="5,10,5,0" Spacing="10">
+                    <Button x:Name="EditAccountButton"
+                            Text="Edit Account"
+                            FontSize="18"
+                            HeightRequest="50"
+                            Clicked="EditAccountButton_Clicked"/>
+                    
+                    <Button x:Name="ShowContactInfoQRBtn"
+                            Text="Share Contact Info"
+                            FontSize="18"
+                            HeightRequest="50"
+                            Clicked="ShowContactInfoQRBtn_Clicked"/>
+                </HorizontalStackLayout>
 
             </StackLayout>
     </VerticalStackLayout>
