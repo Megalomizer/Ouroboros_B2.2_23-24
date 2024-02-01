@@ -4,25 +4,26 @@
              x:Class="OuroborosEvents.MVVM.Views.EventsQRCodeCP"
              xmlns:CV="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              Title="Mobile Ticket">
+    
     <VerticalStackLayout>
         <!-- Using a boxview to add padding for the top of the screen -->
         <BoxView HeightRequest="50" BackgroundColor="Transparent"/>
         <StackLayout
             BackgroundColor="{x:StaticResource Gray200}">
             
-        <!-- QR code (Has to be databound) -->
-        <CV:BarcodeImage x:Name="QRcodeReader"
+        <!-- QR code -->
+        <CV:BarcodeImage x:Name="TicketQRCode"
                   WidthRequest="200"
                   HeightRequest="240" 
                   BarcodeHeight="200" 
                   BarcodeWidth="200"  
                   BarcodeForeground="Black" 
                   BarcodeFormat="QR_CODE" 
-                  BarcodeMargin="5" 
-                  Barcode="It is here"/>
+                  BarcodeMargin="3" 
+                  Barcode="Validated!"/>
         
-        <!-- Data bind this to event title -->
-        <Label
+        <!-- Event Title  -->
+            <Label
             Text="{Binding EventModel.Event.Name}"
             HorizontalOptions="Center"
             FontAttributes="Bold"
@@ -30,59 +31,69 @@
             Margin="0,10,0,0"
             FontSize="32"
             LineBreakMode="WordWrap"/>
-        
-        <!-- Potential day dat a binding? Also still needs to be done -->
-        <Label
-            Text="{Binding EventModel.Event.StartingDate.DayOfWeek}"
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-            WidthRequest="350"
-            Margin="0,0,0,0"
-            FontSize="30"
-            LineBreakMode="WordWrap">   
-        </Label>
 
+            <!-- Date of event  -->
             <HorizontalStackLayout Spacing="5">
                 <Label Text="{Binding EventModel.Event.StartingDate.DayOfWeek}"
-                       Margin="0,0,10,0"/>
-                <Label Text="{Binding EventModel.Event.StartingDate.Day}"/>
-                <Label Text="/"/>
-                <Label Text="{Binding EventModel.Event.StartingDate.Month}"/>
-                <Label Text="/"/>
-                <Label Text="{Binding EventModel.Event.StartingDate.Year}"/>
+                       Margin="30,0,10,0"
+                       FontAttributes="Bold"
+                       FontSize="30"/>
+                
+                <Label Text="{Binding EventModel.Event.StartingDate.Day}"
+                       FontAttributes="Bold"
+                       FontSize="30"/>
+                
+                <Label Text="/"
+                       FontSize="30"/>
+                
+                <Label Text="{Binding EventModel.Event.StartingDate.Month}"
+                       FontAttributes="Bold"
+                       FontSize="30"/>
+                
+                <Label Text="/"
+                       FontSize="30"/>
+                
+                <Label Text="{Binding EventModel.Event.StartingDate.Year}"
+                       FontAttributes="Bold"
+                       FontSize="30"/>
             </HorizontalStackLayout>
         
-        <!-- Price data binding (still needs to be done) -->
-        <Label
+        <!-- Price Data -->
+            <Label
             Text="- $24.99"
             HorizontalOptions="Center"
             FontAttributes="Bold"
             WidthRequest="350"
             Margin="0,0,0,0"
             FontSize="30"
-            LineBreakMode="WordWrap">
-        </Label>
+            LineBreakMode="WordWrap"/>
 
-        <!-- Title of event -->
-        <Label
-            Text="Something here"
+
+            <!-- Title of event again -->
+            <Label
+            Text="{Binding EventModel.Event.Name}"
             HorizontalOptions="Center"
             WidthRequest="350"
             FontAttributes="Bold"
             Margin="0,10,0,0"
             FontSize="15" 
-            LineBreakMode="WordWrap">
-        </Label>
+            LineBreakMode="WordWrap"/>
 
-        <!-- Name of buyer -->
-        <Label
-            Text="{Binding Guest.FirstName}"
-            HorizontalOptions="Center"
-            WidthRequest="350"
-            Margin="0,0,0,0"
-            FontSize="15"
-            LineBreakMode="WordWrap">
-        </Label>
+            <!-- Name of buyer -->
+            <HorizontalStackLayout>
+                <Label
+                    Text="{Binding Guest.FirstName}"
+                    HorizontalOptions="Center"
+                    Margin="30,0,0,0"
+                    FontSize="15"/>
+                
+                <Label
+                    Text="{Binding Guest.LastName}"
+                    HorizontalOptions="Center"
+                    Margin="5,0,0,0"
+                    FontSize="15"/>
+               
+            </HorizontalStackLayout>
             <BoxView HeightRequest="50" BackgroundColor="Transparent"/>
         </StackLayout>
     </VerticalStackLayout>
