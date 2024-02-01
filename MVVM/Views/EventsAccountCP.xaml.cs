@@ -1,6 +1,8 @@
 namespace OuroborosEvents.MVVM.Views;
 
 using Camera.MAUI;
+using Newtonsoft.Json;
+using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.ViewModels;
 
 public partial class EventsAccountCP : ContentPage
@@ -86,7 +88,22 @@ public partial class EventsAccountCP : ContentPage
 
     private async void ShowContactInfoQRBtn_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new EventsQRCameraViewCP());
+        if (App.LoggedInUser == null)
+            return;
+
+        User activeUser = App.LoggedInUser;
+        User contactSharing = new User()
+        {
+            FirstName = activeUser.FirstName,
+            LastName = activeUser.LastName,
+            Email = activeUser.Email,
+            PhoneNumber = activeUser.PhoneNumber,
+            LinkedIn = activeUser.LinkedIn
+        };
+
+        EventTicketQRVM vm = new EventTicketQRVM(contactSharing);
+
+        await Navigation.PushAsync(new ContactInfoQRCodeCP() { BindingContext = vm });
     }
 }
 

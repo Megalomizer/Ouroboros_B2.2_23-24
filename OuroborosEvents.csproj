@@ -89,6 +89,9 @@
 	  <MauiXaml Update="MVVM\Views\ActivityEditCP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\ContactInfoQRCodeCP.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\CreateNewEventCP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
