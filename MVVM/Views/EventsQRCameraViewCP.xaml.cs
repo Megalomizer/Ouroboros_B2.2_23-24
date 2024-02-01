@@ -29,8 +29,6 @@ public partial class EventsQRCameraViewCP : ContentPage
             
         }
     }
-
-    
     
     private void QRCodeView_CamerasLoaded(object sender, EventArgs e)
     {

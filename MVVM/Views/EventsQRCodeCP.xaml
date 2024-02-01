@@ -23,18 +23,17 @@
         
         <!-- Data bind this to event title -->
         <Label
-            Text="Standard comic con ticket"
+            Text="{Binding EventModel.Event.Name}"
             HorizontalOptions="Center"
             FontAttributes="Bold"
             WidthRequest="350"
             Margin="0,10,0,0"
             FontSize="32"
-            LineBreakMode="WordWrap">
-        </Label>
+            LineBreakMode="WordWrap"/>
         
         <!-- Potential day dat a binding? Also still needs to be done -->
         <Label
-            Text="Monday"
+            Text="{Binding EventModel.Event.StartingDate.DayOfWeek}"
             HorizontalOptions="Center"
             FontAttributes="Bold"
             WidthRequest="350"
@@ -42,10 +41,20 @@
             FontSize="30"
             LineBreakMode="WordWrap">   
         </Label>
+
+            <HorizontalStackLayout Spacing="5">
+                <Label Text="{Binding EventModel.Event.StartingDate.DayOfWeek}"
+                       Margin="0,0,10,0"/>
+                <Label Text="{Binding EventModel.Event.StartingDate.Day}"/>
+                <Label Text="/"/>
+                <Label Text="{Binding EventModel.Event.StartingDate.Month}"/>
+                <Label Text="/"/>
+                <Label Text="{Binding EventModel.Event.StartingDate.Year}"/>
+            </HorizontalStackLayout>
         
         <!-- Price data binding (still needs to be done) -->
         <Label
-            Text="- $24.99 (1/1)"
+            Text="- $24.99"
             HorizontalOptions="Center"
             FontAttributes="Bold"
             WidthRequest="350"
@@ -56,18 +65,18 @@
 
         <!-- Title of event -->
         <Label
-            Text="Comic con brussles 2023 (Fall)"
+            Text="Something here"
             HorizontalOptions="Center"
             WidthRequest="350"
             FontAttributes="Bold"
             Margin="0,10,0,0"
-            FontSize="15"
+            FontSize="15" 
             LineBreakMode="WordWrap">
         </Label>
 
         <!-- Name of buyer -->
         <Label
-            Text="Levi Funk"
+            Text="{Binding Guest.FirstName}"
             HorizontalOptions="Center"
             WidthRequest="350"
             Margin="0,0,0,0"

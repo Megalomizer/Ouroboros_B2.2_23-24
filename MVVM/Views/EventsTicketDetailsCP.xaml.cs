@@ -6,12 +6,12 @@ namespace OuroborosEvents.MVVM.Views;
 
 public partial class EventsTicketDetailsCP : ContentPage
 {
-    public YourEventModelVM EventModel { get; set; }
-    public EventsTicketDetailsCP(YourEventModelVM eventModel)
+    public YourEventModelVM eventModel { get; set; }
+    public EventsTicketDetailsCP(YourEventModelVM _eventModel) 
 	{
 		InitializeComponent();
         BindingContext = new EventTicketsVM();
-        EventModel = eventModel;
+        eventModel = _eventModel;
     }
     private async void IntrestedEvent(object sender, EventArgs e)
     {
@@ -19,10 +19,10 @@ public partial class EventsTicketDetailsCP : ContentPage
         List<EventGuest> eventGuests = App.EventGuestRepo.GetEntities();
         foreach (EventGuest eg in eventGuests)
         {
-            if (eg.EventId == EventModel.Event.Id && eg.GuestId == App.LoggedInUser.Id)
+            if (eg.EventId == eventModel.Event.Id && eg.GuestId == App.LoggedInUser.Id)
             {
                 // Remove from Event
-                EventModel.Event.EventGuests.Remove(eg);
+                eventModel.Event.EventGuests.Remove(eg);
 
                 // Remove from Guest
                 Guest _guest = App.GuestRepo.GetEntity(App.LoggedInUser.Id);
@@ -37,7 +37,7 @@ public partial class EventsTicketDetailsCP : ContentPage
         // Save the EventGuest
         EventGuest eventGuest = new EventGuest()
         {
-            EventId = EventModel.Event.Id,
+            EventId = eventModel.Event.Id,
             GuestId = App.LoggedInUser.Id,
         };
         App.EventGuestRepo.SaveEntity(eventGuest);
@@ -59,7 +59,7 @@ public partial class EventsTicketDetailsCP : ContentPage
         App.GuestRepo.SaveEntity(guest);
 
         // Save the updated Event
-        Event _event = EventModel.Event;
+        Event _event = eventModel.Event;
         _event.EventGuests.Add(eventGuest);
         App.EventRepo.SaveEntity(_event);
     }
@@ -68,5 +68,11 @@ public partial class EventsTicketDetailsCP : ContentPage
         YourEventModelVM eventModel = (YourEventModelVM)BindingContext;
         Event _event = eventModel.Event;
         await Navigation.PushAsync(new ActivitiesOfEventCP(_event));
+    }
+
+    private async void ButtonGetTicket_Clicked(object sender, EventArgs e)
+    {
+        EventUserTicketVM vm = new EventUserTicketVM() { EventModel = eventModel };
+        await Navigation.PushAsync(new EventsQRCodeCP() { BindingContext = vm });
     }
 }
