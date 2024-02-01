@@ -22,11 +22,11 @@
                      Priority="1"
                      Clicked="LogoutUser"/>
 
-        <ToolbarItem x:Name="ScanQr_button"
-                     Clicked="QR_Button_Clicked"
+        <ToolbarItem x:Name="ShowQr_button"
+                     Clicked="ShowContactInfoQRBtn_Clicked"
                      Order="Secondary"
                      Priority="2"
-                     Text="Scan Contact Info Qr code"/>
+                     Text="Share Contact Info"/>
 
         <ToolbarItem x:Name="EditAccount_button"
                      Clicked="EditAccountButton_Clicked"
