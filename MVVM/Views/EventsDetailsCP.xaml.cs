@@ -123,4 +123,11 @@ public partial class EventsDetailsCP : ContentPage
         Event _event = eventModel.Event;
         await Navigation.PushAsync(new ActivitiesOfEventCP(_event));
     }
+
+    private async void ShowAllTickets(object sender, EventArgs e)
+    {
+        YourEventModelVM eventModel = (YourEventModelVM)BindingContext;
+        Event ev = eventModel.Event;
+        await Navigation.PushAsync(new EventAllTicketsCP() { BindingContext = new UsersEventTicketListVM(ev) });
+    }
 }

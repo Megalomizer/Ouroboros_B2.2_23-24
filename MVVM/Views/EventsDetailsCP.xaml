@@ -5,19 +5,19 @@
              Title="Details">
 
     <VerticalStackLayout Spacing="1"
-                         Margin="10,5,10,0">
-
+                         Margin="15,5,15,0">
+        
         <HorizontalStackLayout Spacing="2">
             <Label x:Name="StartingDate_Day"
                    Text="{Binding Event.StartingDate.Day}"
                    TextColor="{x:StaticResource Gray300}"
                    FontSize="14"/>
-
+            
             <Label x:Name="StartingDate_DayMonth"
                    Text="/"
                    TextColor="{x:StaticResource Gray300}"
                    FontSize="14"/>
-
+            
             <Label x:Name="StartingDate_Date"
                    Text="{Binding Event.StartingDate.Month}"
                    TextColor="{x:StaticResource Gray300}"
@@ -42,18 +42,28 @@
 
         <Label x:Name="EventName"
                Text="{Binding Event.Name}"
+               Margin="0,5,0,5"
                FontSize="32"/>
 
         <HorizontalStackLayout>
             <Label x:Name="AddressStreet"
                    Text="{Binding Address.Street}"
+                   Margin="0,0,5,0"
                    FontSize="16"/>
+            
             <Label x:Name="AddressHousenumber"
                    Text="{Binding Address.HouseNumber}"
                    FontSize="16"/>
+
+            <Label Text=","
+                   FontSize="16"
+                   Margin="0,0,10,0"/>
+
             <Label x:Name="AddressCity"
                    Text="{Binding Address.City}"
-                   FontSize="16"/>
+                   FontSize="16"
+                   Margin="0,0,10,0"/>
+            
             <Label x:Name="AddressPostalCode"
                    Text="{Binding Address.PostalCode}"
                    FontSize="16"/>
@@ -101,12 +111,27 @@
                 IsReadOnly="True"
                 Margin="0,5,0,0"/>
 
-        <Button x:Name="ButtonAllActivities"
-                Text="View All Activities"
-                Clicked="ShowAllActivities"
-                HeightRequest="50"
-                FontSize="20"
-                Margin="0,40,0,0"/>
+        <HorizontalStackLayout Margin="0,30,0,0"
+                               Spacing="10"
+                               HorizontalOptions="CenterAndExpand">
+
+            <Button x:Name="ButtonAllTicketedUsers"
+                    Text="All Tickets"
+                    Clicked="ShowAllTickets"
+                    CornerRadius="15"
+                    HeightRequest="50"
+                    WidthRequest="150"
+                    FontSize="20"/>
+            
+            <Button x:Name="ButtonAllActivities"
+                    Text="All Activities"
+                    Clicked="ShowAllActivities"
+                    HeightRequest="50"
+                    CornerRadius="15"
+                    WidthRequest="150"
+                    FontSize="20"/>
+            
+        </HorizontalStackLayout>
 
     </VerticalStackLayout>
 
