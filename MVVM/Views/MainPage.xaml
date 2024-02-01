@@ -3,7 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.MainPage"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{x:StaticResource Primary}"/>
+    </ContentPage.Behaviors>
 
     <ScrollView>
         <VerticalStackLayout

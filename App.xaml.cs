@@ -37,7 +37,7 @@ namespace OuroborosEvents
 
             MainPage = new NavigationPage(new MainPage());
 
-            // Create Zuyd Address
+            // Create Zuyd Address 
             Address ZuydAddress = new Address
             {
                 City = "Heerlen",

@@ -81,9 +81,9 @@ public partial class EventsAccountCP : ContentPage
         await Navigation.PushAsync(new EventsQRCameraViewCP());
     }
 
-    private void EditAccountButton_Clicked(object sender, EventArgs e)
+    private async void EditAccountButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new AccountEditCP());
+        await Navigation.PushAsync(new AccountEditCP());
     }
 
     private async void ShowContactInfoQRBtn_Clicked(object sender, EventArgs e)
@@ -104,6 +104,42 @@ public partial class EventsAccountCP : ContentPage
         EventTicketQRVM vm = new EventTicketQRVM(contactSharing);
 
         await Navigation.PushAsync(new ContactInfoQRCodeCP() { BindingContext = vm });
+    }
+
+    private async void DeleteAccountButton_Clicked(object sender, EventArgs e)
+    {
+        string cancel = "Cancel";
+        string destruction = "Delete account";
+        string useraction = await DisplayActionSheet("You are about to delete your account along with all its information.\nThis action is not reversable!\nAre you sure you want to delete this account?", cancel, destruction);
+
+        if(useraction == destruction)
+        {
+            User user = App.LoggedInUser;
+            if(user.GetType() == typeof(Guest))
+            {
+                user = App.GuestRepo.GetEntity(user.Id);
+                if (user != null)
+                    App.GuestRepo.DeleteEntity((Guest)user);
+            }
+            else if(user.GetType() == typeof(Organiser))
+            {
+                user = App.OrganiserRepo.GetEntity(user.Id);
+                if(user != null)
+                    App.OrganiserRepo.DeleteEntity((Organiser)user);
+            }
+            else if(user.GetType() == typeof(Exhibitor))
+            {
+                user = App.ExhibitorRepo.GetEntity(user.Id);
+                if(user != null)
+                    App.ExhibitorRepo.DeleteEntity((Exhibitor)user);
+            }
+
+            App.LoggedInUser = null;
+            SecureStorage.Remove("Username");
+            SecureStorage.Remove("Password");
+            SecureStorage.Remove("Type");
+            await Navigation.PopToRootAsync();
+        }
     }
 }
 

@@ -6,10 +6,10 @@
              xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
              Title="EventsAccountCP"
              NavigationPage.HasBackButton="False">
-    
+
     <!--For buttons in the top row-->
     <ContentPage.ToolbarItems>
-        
+
         <ToolbarItem x:Name="QR_Button"
                      Clicked="QR_Button_Clicked"
                      IconImageSource="qr_code_scan.png"
@@ -35,6 +35,7 @@
                      Text="Edit Account"/>
 
         <ToolbarItem x:Name="DeleteAccount_button"
+                     Clicked="DeleteAccountButton_Clicked"
                      Order="Secondary"
                      Priority="100"
                      Text="Delete Account"/>
@@ -44,7 +45,7 @@
     <ScrollView HorizontalOptions="CenterAndExpand">
         <StackLayout Spacing="5"
                      HorizontalOptions="CenterAndExpand">
-            
+
             <!--Profile picture-->
             <Frame CornerRadius="100"
                    WidthRequest="150"
@@ -60,13 +61,13 @@
                              WidthRequest="200"
                              HeightRequest="200"/>
             </Frame>
-            
+
             <StackLayout HorizontalOptions="CenterAndExpand">
-                
+
                 <HorizontalStackLayout Spacing="5"
                                        Margin="0,5,0,0"
                                        HorizontalOptions="Center">
-                    
+
                     <!--All general information-->
                     <Label x:Name="Firstname"
                            Text="{Binding User.FirstName}"
@@ -79,7 +80,7 @@
                            FontFamily="PoppinsBold"/>
 
                 </HorizontalStackLayout>
-                
+
                 <!-- Info section -->
 
                 <Label  Text="Info"
@@ -109,7 +110,7 @@
                                FontSize="15"
                                FontFamily="PoppinsBold"
                                Margin="20,0,0,0"/>
-                        
+
                         <Label Text="{Binding User.Email}"
                                x:Name="Emailaddress"
                                FontFamily="PoppinsRegular"
@@ -117,7 +118,7 @@
                                Margin="20,0,0,0"/>
                     </StackLayout>
                 </Grid>
-                
+
                 <Grid Margin="15,25,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -135,7 +136,7 @@
                                FontSize="15"
                                FontFamily="PoppinsBold"
                                Margin="20,0,0,0"/>
-                        
+
                         <Label Text="{Binding User.PhoneNumber}"
                                x:Name="Phonenumber"
                                FontFamily="PoppinsRegular"
