@@ -21,12 +21,6 @@
         <TimePicker x:Name="EndingTime"
                     Time="{Binding YourEventModelVM.Event.DailyClosingTime}"/>
 
-        <Picker x:Name="AddressPicker"
-                Title="Select an Address"
-                ItemsSource="{Binding Addresses}"
-                ItemDisplayBinding="{Binding PostalCode}"
-                SelectedItem="{Binding YourEventModelVM.Address.PostalCode}"/>
-
         <Button x:Name="UpdateEvent"
                 Text="Save Event"
                 Clicked="UpdateEvent_Clicked"/>

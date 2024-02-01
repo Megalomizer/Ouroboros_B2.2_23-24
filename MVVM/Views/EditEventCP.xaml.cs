@@ -47,6 +47,16 @@ public partial class EditEventCP : ContentPage
         if (_event.DailyClosingTime == null)
             _event.DailyClosingTime = uneditedEvent.Event.DailyClosingTime;
 
+		// Change address to Zuyd Address
+		List<Address> addresses = App.AddressRepo.GetEntities();
+		foreach(Address a in addresses)
+		{
+			if(a.PostalCode == "6419DJ")
+			{
+				_event.AddressId = a.Id;
+			}
+		}
+
 		var differenceInTimeInSeconds = _event.StartingDate.Value.TimeOfDay.Seconds - _event.DailyOpeningTime.Value.Seconds;
 		_event.StartingDate.Value.AddSeconds(differenceInTimeInSeconds);
 
