@@ -78,5 +78,10 @@ public partial class EventsAccountCP : ContentPage
     {
         await Navigation.PushAsync(new EventsQRCameraViewCP());
     }
+
+    private void EditAccountButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AccountEditCP());
+    }
 }
 
