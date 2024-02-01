@@ -30,18 +30,12 @@ public partial class RegisterPage : ContentPage
         VerificationAPI deserializedResponse = await VerificationAPI.VerifyEmailAsync(currentemail);
         if (deserializedResponse != null)
         {
-            if (deserializedResponse.IsDisposable is true)
+            if (deserializedResponse.IsDisposable == true || deserializedResponse.IsValid == false || deserializedResponse.IsMailServerDefined == false)
             {
-                await DisplayAlert("Error", "You have entered a disposable Email Adress. Please enter your real Email.", "Ok");
-                createuser = false;
-            }
-            if (deserializedResponse.IsValid is false)
-            {
-                await DisplayAlert("Error", "You have entered an invalid Email Adress.", "Ok");
+                await DisplayAlert("Error", "You have entered a fake or disposable email address.", "Ok");
                 createuser = false;
             }
         }
-
 
         // Check if password 1 and 2 are the same
         if (RegPasswordCheck.Text == RegPassword.Text)
