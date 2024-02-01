@@ -19,7 +19,7 @@
         <ToolbarItem x:Name="Logout_button"
                      Text="Logout"
                      Order="Secondary"
-                     Priority="1"
+                     Priority="99"
                      Clicked="LogoutUser"/>
 
         <ToolbarItem x:Name="ShowQr_button"
@@ -31,7 +31,7 @@
         <ToolbarItem x:Name="EditAccount_button"
                      Clicked="EditAccountButton_Clicked"
                      Order="Secondary"
-                     Priority="99"
+                     Priority="1"
                      Text="Edit Account"/>
 
         <ToolbarItem x:Name="DeleteAccount_button"

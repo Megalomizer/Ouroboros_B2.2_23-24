@@ -96,11 +96,7 @@
                 Clicked="ButtonGetTicket_Clicked"
                 HeightRequest="50"
                 FontSize="22"
-                Margin="0,15,0,0"
-            />
-
-
-
+                Margin="0,15,0,0"/>
+        
     </VerticalStackLayout>
-
 </ContentPage>
