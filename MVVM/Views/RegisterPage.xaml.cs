@@ -37,7 +37,6 @@ public partial class RegisterPage : ContentPage
             }
         }
 
-
         // Check if password 1 and 2 are the same
         if (RegPasswordCheck.Text == RegPassword.Text)
         {

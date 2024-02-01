@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OuroborosEvents.MVVM.Views.AccountEditCP"
+             Title="Edit Account">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="7"
+            Padding="20,0"
+            VerticalOptions="Center">
+            <Label
+                x:Name="FirstNamelbl"
+                Text="First name:"
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="RegFirstName"
+                Placeholder="{Binding User.FirstName}"
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="LastNamelbl"
+                Text="Last name:"
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="RegLastName"
+                Placeholder="{Binding User.LastName}"
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="EMaillbl"
+                Text="E-Mail:"
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="RegEMail"
+                Keyboard="Email"
+                Placeholder="{Binding User.Email}"
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="RegPhonelb"
+                Text="Phonenumber"
+                HorizontalOptions="Center"/>
+            <Entry 
+                x:Name="RegPhone"
+                Keyboard="Numeric"
+                Placeholder="{Binding User.PhoneNumber}"
+                HorizontalOptions="Center"/>
+            <Label
+                x:Name="Passwordlbl"
+                Text="Password:"
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="RegPassword"
+                IsPassword="True"
+                Placeholder="Please enter your password."
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="PasswordChecklbl"
+                Text="Password:"
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="RegPasswordCheck"
+                IsPassword="True"
+                Placeholder="Please enter your password."
+                HorizontalOptions="Center" />
+
+
+            <Button
+                x:Name="RegisterBtn"
+                Text="Confirm account edit"
+                Clicked="RegisterBtn_Clicked"
+                HorizontalOptions="Center" />
+            <Button
+                x:Name="DeleteBtn"
+                Text="Delete account"
+                Clicked="DeleteBtn_Clicked"
+                HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
