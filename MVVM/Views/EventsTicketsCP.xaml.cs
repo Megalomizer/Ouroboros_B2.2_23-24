@@ -15,7 +15,7 @@ namespace OuroborosEvents.MVVM.Views
 		{
 			var viewCell = sender as ViewCell;
 			YourEventModelVM tappedCell = viewCell.BindingContext as YourEventModelVM;
-			await Navigation.PushAsync(new EventsDetailsCP(tappedCell) { BindingContext = tappedCell });
+			await Navigation.PushAsync(new EventsTicketDetailsCP(tappedCell) { BindingContext = tappedCell });
 		}
 
 		private void ResetList(object sender, EventArgs e)
