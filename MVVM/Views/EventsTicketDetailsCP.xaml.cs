@@ -1,19 +1,18 @@
-using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.ViewModels;
+using OuroborosEvents.MVVM.Models;
 using System.Windows.Input;
 
 namespace OuroborosEvents.MVVM.Views;
 
-public partial class EventsDetailsCP : ContentPage
+public partial class EventsTicketDetailsCP : ContentPage
 {
     public YourEventModelVM EventModel { get; set; }
-
-    public EventsDetailsCP(YourEventModelVM eventModel)
-    {
-        InitializeComponent();
+    public EventsTicketDetailsCP(YourEventModelVM eventModel)
+	{
+		InitializeComponent();
+        BindingContext = new EventTicketsVM();
         EventModel = eventModel;
     }
-
     private async void IntrestedEvent(object sender, EventArgs e)
     {
         // Check if Already exists
@@ -35,7 +34,6 @@ public partial class EventsDetailsCP : ContentPage
                 return;
             }
         }
-
         // Save the EventGuest
         EventGuest eventGuest = new EventGuest()
         {
@@ -65,58 +63,6 @@ public partial class EventsDetailsCP : ContentPage
         _event.EventGuests.Add(eventGuest);
         App.EventRepo.SaveEntity(_event);
     }
-
-    private void ShareEvent(object sender, EventArgs e)
-    {
-
-    }
-
-    private void GetEventTicket(object sender, EventArgs e)
-    {
-        // Check if already user owns a ticket
-        EventGuest eventGuest = null;
-
-        List<EventGuest> eventGuests = App.EventGuestRepo.GetEntities();
-        foreach (EventGuest eg in eventGuests)
-        {
-            if (eg.EventId == EventModel.Event.Id && eg.GuestId == App.LoggedInUser.Id)
-            {
-                if (eg.HasTicket == true)
-                    return;
-
-                eventGuest = eg;
-            }
-        }
-
-        if (eventGuest == null)
-            return;
-
-        eventGuest.HasTicket = true;
-        App.EventGuestRepo.SaveEntity(eventGuest);
-    }
-
-    private async void DeleteEvent(object sender, EventArgs e)
-    {
-        string cancel = "Cancel";
-        string destruction = "Delete";
-        string reply = await DisplayActionSheet("Are you sure you want to delete this event?", cancel, destruction);
-        if (reply == destruction)
-        {
-            var eventModel = BindingContext as YourEventModelVM;
-            Event _event = App.EventRepo.GetEntity(eventModel.Event.Id);
-            App.EventRepo.DeleteEntity(_event);
-            await Navigation.PopAsync();
-        }
-    }
-
-    private async void EditEvent(object sender, EventArgs e)
-    {
-        var eventData = BindingContext;
-        YourEventModelVM vm = eventData as YourEventModelVM;
-        EditEventModel em = new EditEventModel() { YourEventModelVM = vm, Addresses = App.AddressRepo.GetEntities() };
-        await Navigation.PushAsync(new EditEventCP(vm) { BindingContext = em });
-    }
-
     private async void ShowAllActivities(object sender, EventArgs e)
     {
         YourEventModelVM eventModel = (YourEventModelVM)BindingContext;
