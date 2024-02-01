@@ -46,6 +46,12 @@ public partial class EditEventCP : ContentPage
         if (_event.DailyClosingTime == null)
             _event.DailyClosingTime = uneditedEvent.Event.DailyClosingTime;
 
+		var differenceInTimeInSeconds = _event.StartingDate.Value.TimeOfDay.Seconds - _event.DailyOpeningTime.Value.Seconds;
+		_event.StartingDate.Value.AddSeconds(differenceInTimeInSeconds);
+
+		differenceInTimeInSeconds = _event.EndingDate.Value.TimeOfDay.Seconds - _event.DailyClosingTime.Value.Seconds;
+		_event.EndingDate.Value.AddSeconds(differenceInTimeInSeconds);
+
 		App.EventRepo.SaveEntity(_event);
 		await Navigation.PopAsync();
 	}

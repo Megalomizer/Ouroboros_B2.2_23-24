@@ -7,15 +7,6 @@
 
     <StackLayout>
 
-        <Button x:Name="CreateEvent"
-                Text="Create an Event"
-                FontSize="16"
-                WidthRequest="200"
-                CornerRadius="15"
-                Margin="0,10,0,10"
-                HorizontalOptions="Center"
-                Clicked="CreateEventButton"/>
-
         <ListView ItemsSource="{Binding Events}"
                   x:Name="ListViewEvents"
                   RowHeight="70"

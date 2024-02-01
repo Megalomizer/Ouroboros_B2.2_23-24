@@ -42,6 +42,14 @@
                 Keyboard="Numeric"
                 Placeholder="Please enter your phonenumber"
                 HorizontalOptions="Center"/>
+
+            <Label x:Name="RegLinkedInLb"
+                   Text="LinkedIn Pagina:"
+                   HorizontalOptions="Center"/>
+            <Entry x:Name="RegLinkedIn"
+                   Placeholder="Please enter your LinkedIn pagina"
+                   HorizontalOptions="Center"/>
+
             <Label
                 x:Name="Passwordlbl"
                 Text="Password:"

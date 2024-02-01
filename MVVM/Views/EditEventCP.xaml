@@ -13,10 +13,10 @@
                 HeightRequest="100"/>
         <DatePicker x:Name="StartingDate"
                     Date="{Binding Event.StartingDate}"/>
-        <DatePicker x:Name="EndingDate"
-                    Date="{Binding Event.EndingDate}"/>
         <TimePicker x:Name="StartingTime"
                     Time="{Binding Event.DailyOpeningTime}"/>
+        <DatePicker x:Name="EndingDate"
+                    Date="{Binding Event.EndingDate}"/>
         <TimePicker x:Name="EndingTime"
                     Time="{Binding Event.DailyClosingTime}"/>
 

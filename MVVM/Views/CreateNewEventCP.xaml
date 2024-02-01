@@ -12,8 +12,8 @@
                 Placeholder="Description"
                 HeightRequest="100"/>
         <DatePicker x:Name="StartingDate"/>
-        <DatePicker x:Name="EndingDate"/>
         <TimePicker x:Name="StartingTime"/>
+        <DatePicker x:Name="EndingDate"/>
         <TimePicker x:Name="EndingTime"/>
 
         <Button x:Name="CreateEvent"

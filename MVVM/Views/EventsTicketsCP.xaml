@@ -6,7 +6,7 @@
              NavigationPage.HasBackButton="False"
              xmlns:CV="clr-namespace:Camera.MAUI;assembly=Camera.MAUI">
 
-    <VerticalStackLayout>
+    <StackLayout>
 
         <ListView ItemsSource="{Binding Events}"
                   x:Name="ListViewEvents"
@@ -70,5 +70,5 @@
             </ListView.ItemTemplate>
         </ListView>
 
-    </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>
