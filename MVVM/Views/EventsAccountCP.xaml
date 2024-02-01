@@ -6,177 +6,186 @@
              xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
              Title="EventsAccountCP"
              NavigationPage.HasBackButton="False">
-    
+
     <!--For buttons in the top row-->
     <ContentPage.ToolbarItems>
-        <ToolbarItem
-            x:Name="QR_Button"
-            Clicked="QR_Button_Clicked"
-            IconImageSource="qr_code_scan.png"
-            Order="Primary"
-            Priority="0"/>
+
+        <ToolbarItem x:Name="QR_Button"
+                     Clicked="QR_Button_Clicked"
+                     IconImageSource="qr_code_scan.png"
+                     Order="Primary"
+                     Priority="0"/>
+
+        <ToolbarItem x:Name="Logout_button"
+                     Text="Logout"
+                     Order="Secondary"
+                     Priority="1"
+                     Clicked="LogoutUser"/>
+
+        <ToolbarItem x:Name="ScanQr_button"
+                     Clicked="QR_Button_Clicked"
+                     Order="Secondary"
+                     Priority="2"
+                     Text="Scan Contact Info Qr code"/>
+
+        <ToolbarItem x:Name="EditAccount_button"
+                     Clicked="EditAccountButton_Clicked"
+                     Order="Secondary"
+                     Priority="99"
+                     Text="Edit Account"/>
+
+        <ToolbarItem x:Name="DeleteAccount_button"
+                     Clicked="DeleteAccountButton_Clicked"
+                     Order="Secondary"
+                     Priority="100"
+                     Text="Delete Account"/>
+
     </ContentPage.ToolbarItems>
 
-    <ScrollView>
-    <VerticalStackLayout>
-        <!--Profile picture-->
-        <Frame
-            CornerRadius="100"
-            WidthRequest="150"
-            HeightRequest="150"
-            Margin="0,20,0,0">
-            <ImageButton Source="default_pfp.png"
-                         x:Name="AccountCPProfilePicture"
-                         Clicked="ImageButton_Clicked"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"
-                         BorderWidth="1"
-                         CornerRadius="10"
-                         WidthRequest="200"
-                         HeightRequest="200"/>
-        </Frame>
+    <ScrollView HorizontalOptions="CenterAndExpand">
+        <StackLayout Spacing="5"
+                     HorizontalOptions="CenterAndExpand">
 
-        <StackLayout>
+            <!--Profile picture-->
+            <Frame CornerRadius="100"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   Margin="0,20,0,0">
+                <ImageButton Source="default_pfp.png"
+                             x:Name="AccountCPProfilePicture"
+                             Clicked="ImageButton_Clicked"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             BorderWidth="1"
+                             CornerRadius="10"
+                             WidthRequest="200"
+                             HeightRequest="200"/>
+            </Frame>
 
-            <HorizontalStackLayout Spacing="5"
-                                   Margin="0,5,0,0"
-                                   HorizontalOptions="Center">
-                
-                <!--All general information-->
-                <Label x:Name="Firstname"
-                       Text="{Binding User.FirstName}"
-                       FontSize="35"
-                       FontFamily="PoppinsBold"/>
+            <StackLayout HorizontalOptions="CenterAndExpand">
 
-                <Label x:Name="Lastname"
-                       Text="{Binding User.LastName}"
-                       FontSize="35"
-                       FontFamily="PoppinsBold"/>
+                <HorizontalStackLayout Spacing="5"
+                                       Margin="0,5,0,0"
+                                       HorizontalOptions="Center">
 
-            </HorizontalStackLayout>
+                    <!--All general information-->
+                    <Label x:Name="Firstname"
+                           Text="{Binding User.FirstName}"
+                           FontSize="35"
+                           FontFamily="PoppinsBold"/>
 
-            <Label  Text="Info"
-                    FontSize="24"
-                    Margin="15,0,0,0"
-                    FontFamily="PoppinsBold" />
+                    <Label x:Name="Lastname"
+                           Text="{Binding User.LastName}"
+                           FontSize="35"
+                           FontFamily="PoppinsBold"/>
 
-
-            <BoxView Color="{x:StaticResource Gray500}"
-                     HeightRequest="2"
-                     HorizontalOptions="Fill" 
-                     Margin="15,0,100,8"/>
-
-            <Grid Margin="15,0,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0">
-                    <Image.Source>
-                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Envelope}" Color="{x:StaticResource Primary}" />
-                    </Image.Source>
-                </Image>
-
-                <StackLayout Grid.Column="1">
-                    <Label Text="Email"
-                           FontSize="15"
-                           FontFamily="PoppinsBold"
-                           Margin="20,0,0,0"/>
-
-                    <Label Text="{Binding User.Email}"
-                           x:Name="Emailaddress"
-                           FontFamily="PoppinsRegular"
-                           TextColor="{x:StaticResource Gray400}"
-                           Margin="20,0,0,0"/>
-                </StackLayout>
-            </Grid>
-
-            <Grid Margin="15,25,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0">
-                    <Image.Source>
-                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Phone}" Color="{x:StaticResource Primary}" />
-                    </Image.Source>
-                </Image>
-
-                <StackLayout Grid.Column="1">
-                    <Label Text="Phonenumber"
-                           FontSize="15"
-                           FontFamily="PoppinsBold"
-                           Margin="20,0,0,0"/>
-
-                    <Label Text="{Binding User.PhoneNumber}"
-                           x:Name="Phonenumber"
-                           FontFamily="PoppinsRegular"
-                           TextColor="{x:StaticResource Gray400}"
-                           Margin="20,0,0,0"/>
-                </StackLayout>
-            </Grid>
-
-            <Label  Text="Social accounts"
-                    FontSize="24"
-                    Margin="15,40,0,0"
-                    FontFamily="PoppinsBold" />
-
-            <BoxView Color="{x:StaticResource Gray500}"
-                     HeightRequest="2"
-                     HorizontalOptions="Fill" 
-                     Margin="15,0,100,8"/>
-
-            <Grid Margin="15,0,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0">
-                    <Image.Source>
-                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Link}" Color="{x:StaticResource Primary}" />
-                    </Image.Source>
-                </Image>
-
-                <StackLayout Grid.Column="1">
-
-                    <Label Text="LinkedIn"
-                           FontSize="15"
-                           FontFamily="PoppinsBold"
-                           Margin="20,0,0,0"/>
-
-                    <Label Text="{Binding User.LinkedIn}"
-                           x:Name="LinkedIn"
-                           FontFamily="PoppinsRegular"
-                           TextColor="{x:StaticResource Gray400}"
-                           Margin="20,0,0,0"/>
-                </StackLayout>
-            </Grid>
-
-            <Button x:Name="LogoutButton"
-                    Text="Log out"
-                    Margin="0,10,0,0"
-                    FontSize="18"
-                    HeightRequest="50"
-                    Clicked="LogoutUser"/>
-
-                <HorizontalStackLayout HorizontalOptions="Center" Margin="5,10,5,0" Spacing="10">
-                    <Button x:Name="EditAccountButton"
-                            Text="Edit Account"
-                            FontSize="18"
-                            HeightRequest="50"
-                            Clicked="EditAccountButton_Clicked"/>
-                    
-                    <Button x:Name="ShowContactInfoQRBtn"
-                            Text="Share Contact Info"
-                            FontSize="18"
-                            HeightRequest="50"
-                            Clicked="ShowContactInfoQRBtn_Clicked"/>
                 </HorizontalStackLayout>
 
+                <!-- Info section -->
+
+                <Label  Text="Info"
+                        FontSize="24"
+                        Margin="15,0,15,0"
+                        FontFamily="PoppinsBold" />
+
+                <Rectangle BackgroundColor="{x:StaticResource Gray500}"
+                           HeightRequest="3"
+                           WidthRequest="330"
+                           Margin="15,0,15,8"/>
+
+                <Grid Margin="15,0,15,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Envelope}" Color="{x:StaticResource Primary}" />
+                        </Image.Source>
+                    </Image>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Email"
+                               FontSize="15"
+                               FontFamily="PoppinsBold"
+                               Margin="20,0,0,0"/>
+
+                        <Label Text="{Binding User.Email}"
+                               x:Name="Emailaddress"
+                               FontFamily="PoppinsRegular"
+                               TextColor="{x:StaticResource Gray400}"
+                               Margin="20,0,0,0"/>
+                    </StackLayout>
+                </Grid>
+
+                <Grid Margin="15,25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Phone}" Color="{x:StaticResource Primary}" />
+                        </Image.Source>
+                    </Image>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Phonenumber"
+                               FontSize="15"
+                               FontFamily="PoppinsBold"
+                               Margin="20,0,0,0"/>
+
+                        <Label Text="{Binding User.PhoneNumber}"
+                               x:Name="Phonenumber"
+                               FontFamily="PoppinsRegular"
+                               TextColor="{x:StaticResource Gray400}"
+                               Margin="20,0,0,0"/>
+                    </StackLayout>
+                </Grid>
+
+                <!-- Social Accounts section -->
+                <Label  Text="Social accounts"
+                        FontSize="24"
+                        Margin="15,40,0,0"
+                        FontFamily="PoppinsBold" />
+
+                <Rectangle BackgroundColor="{x:StaticResource Gray500}"
+                           HeightRequest="3"
+                           WidthRequest="330"
+                           Margin="15,0,15,8"/>
+
+                <Grid Margin="15,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.Link}" Color="{x:StaticResource Primary}" />
+                        </Image.Source>
+                    </Image>
+
+                    <StackLayout Grid.Column="1">
+
+                        <Label Text="LinkedIn"
+                               FontSize="15"
+                               FontFamily="PoppinsBold"
+                               Margin="20,0,20,0"/>
+
+                        <Label Text="{Binding User.LinkedIn}"
+                               x:Name="LinkedIn"
+                               FontFamily="PoppinsRegular"
+                               TextColor="{x:StaticResource Gray400}"
+                               Margin="20,0,20,0"/>
+                    </StackLayout>
+                </Grid>
+
+
+
             </StackLayout>
-    </VerticalStackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

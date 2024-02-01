@@ -16,22 +16,11 @@ namespace OuroborosEvents.MVVM.ViewModels
         public User? User { get; set; }
         public string QrJson { get; set; }
 
-        public EventTicketQRVM()
+        public EventTicketQRVM(User user)
         {
-            User = App.LoggedInUser;
+            User = user;
             if (User != null)
                 QrJson = System.Text.Json.JsonSerializer.Serialize<User>(User);
-            
-
         }
     }
 }
-        //public void Main() 
-        //{
-           // EventTicketQRVM viewModel = new EventTicketQRVM();
-
-            //User? user = JsonSerializer.Deserialize<User>(QrJson);
-        //}
-
-    //}
-//}

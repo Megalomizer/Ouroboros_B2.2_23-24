@@ -14,7 +14,7 @@
                 HorizontalOptions="Center" />
             <Entry
                 x:Name="RegFirstName"
-                Placeholder="{Binding User.FirstName}"
+                Text="{Binding User.FirstName}"
                 HorizontalOptions="Center" />
             <Label
                 x:Name="LastNamelbl"
@@ -22,7 +22,7 @@
                 HorizontalOptions="Center" />
             <Entry
                 x:Name="RegLastName"
-                Placeholder="{Binding User.LastName}"
+                Text="{Binding User.LastName}"
                 HorizontalOptions="Center" />
             <Label
                 x:Name="EMaillbl"
@@ -31,7 +31,7 @@
             <Entry
                 x:Name="RegEMail"
                 Keyboard="Email"
-                Placeholder="{Binding User.Email}"
+                Text="{Binding User.Email}"
                 HorizontalOptions="Center" />
             <Label
                 x:Name="RegPhonelb"
@@ -40,38 +40,21 @@
             <Entry 
                 x:Name="RegPhone"
                 Keyboard="Numeric"
-                Placeholder="{Binding User.PhoneNumber}"
+                Text="{Binding User.PhoneNumber}"
                 HorizontalOptions="Center"/>
-            <Label
-                x:Name="Passwordlbl"
-                Text="Password:"
-                HorizontalOptions="Center" />
-            <Entry
-                x:Name="RegPassword"
-                IsPassword="True"
-                Placeholder="Please enter your password."
-                HorizontalOptions="Center" />
-            <Label
-                x:Name="PasswordChecklbl"
-                Text="Password:"
-                HorizontalOptions="Center" />
-            <Entry
-                x:Name="RegPasswordCheck"
-                IsPassword="True"
-                Placeholder="Please enter your password."
-                HorizontalOptions="Center" />
-
+            <Label x:Name="RegLinkedInlb"
+                   Text="Linkedin"
+                   HorizontalOptions="Center"/>
+            <Entry x:Name="RegLinkedIn"
+                   Text="{Binding User.LinkedIn}"
+                   HorizontalOptions="Center"/>
 
             <Button
                 x:Name="RegisterBtn"
-                Text="Confirm account edit"
+                Text="Confirm changes"
                 Clicked="RegisterBtn_Clicked"
                 HorizontalOptions="Center" />
-            <Button
-                x:Name="DeleteBtn"
-                Text="Delete account"
-                Clicked="DeleteBtn_Clicked"
-                HorizontalOptions="Center" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

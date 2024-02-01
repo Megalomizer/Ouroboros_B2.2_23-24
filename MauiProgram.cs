@@ -1,4 +1,5 @@
 ﻿using Camera.MAUI;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.Repositories;
@@ -16,6 +17,7 @@ namespace OuroborosEvents
             builder
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
+                .UseMauiCommunityToolkit()
                 .UseUraniumUI()
                 .UseLocalNotification()
                 .UseUraniumUIMaterial()
