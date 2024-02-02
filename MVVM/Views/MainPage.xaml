@@ -59,6 +59,7 @@
 
             <!-- Login Button -->
             <Button x:Name="LoginBtn" 
+                    StyleClass="FilledButton"
                     Text="Log in" 
                     WidthRequest="300" 
                     FontFamily="PoppinsRegular" 
@@ -82,12 +83,13 @@
             </HorizontalStackLayout>
 
             <!-- Register Button -->
-            <Button x:Name="RegisterBtn" 
+            <Button StyleClass="OutlinedButton" 
+                    x:Name="RegisterBtn" 
                     Text="Register" 
                     WidthRequest="300" 
                     FontFamily="PoppinsRegular"
                     Margin="0,-10,0,0"
-                    TextColor="White" 
+                    TextColor="{x:StaticResource Primary}" 
                     BorderColor="{x:StaticResource Primary}"
                     FontAttributes="Bold" 
                     Clicked="RegisterBtn_Clicked"

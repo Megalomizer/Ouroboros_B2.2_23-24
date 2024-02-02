@@ -97,11 +97,11 @@
                 HorizontalOptions="Center"
                 WidthRequest="360"/>
 
-           
-
             <Button
                 x:Name="RegisterBtn"
+                StyleClass="FilledButton"
                 Text="Register"
+                FontAttributes="Bold"
                 Clicked="RegisterBtn_Clicked"
                 HorizontalOptions="Center"
                 Margin="0,14,0,0"
