@@ -27,6 +27,7 @@ public partial class ActivityDetailsCP : ContentPage
 
     private async void EditActivity(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ActivityEditCP() { BindingContext = sender as ActivityDetailsVM });
+        ActivityDetailsVM vm = BindingContext as ActivityDetailsVM;
+        await Navigation.PushAsync(new ActivityEditCP() { BindingContext = vm });
     }
 }

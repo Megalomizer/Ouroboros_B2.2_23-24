@@ -12,13 +12,15 @@ namespace OuroborosEvents.MVVM.Views
 
         private async void UpdateActivity(object sender, EventArgs e)
         {
-            var uneditedActivity = sender as ActivityDetailsVM;
+            // 
+            var uneditedActivity = BindingContext as ActivityDetailsVM;
 
             DateTime dateTime = StartingDate.Date;
             dateTime.Add(StartingTime.Time);
 
             Activity activity = new Activity()
             {
+                Id = uneditedActivity.Activity.Id,
                 Name = Name.Text,
                 Description = Description.Text,
                 StartDateTime = dateTime,
@@ -26,13 +28,13 @@ namespace OuroborosEvents.MVVM.Views
             };
 
             if (activity.Name == null || activity.Name == "")
-                activity.Name = uneditedActivity.Event.Name;
+                activity.Name = uneditedActivity.Activity.Name;
             if (activity.Description == null || activity.Description == "")
-                activity.Description = uneditedActivity.Event.Description;
+                activity.Description = uneditedActivity.Activity.Description;
             if (activity.StartDateTime == null)
-                activity.StartDateTime = uneditedActivity.Event.StartingDate;
+                activity.StartDateTime = uneditedActivity.Activity.StartDateTime;
             if (activity.Duration == null)
-                activity.Duration = uneditedActivity.Event.DailyOpeningTime;
+                activity.Duration = uneditedActivity.Activity.Duration;
 
             App.ActivityRepo.SaveEntity(activity);
             await Navigation.PopAsync();
