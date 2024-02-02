@@ -13,11 +13,16 @@ public partial class ActivityCreationCP : ContentPage
 
     private async void SaveActivity(object sender, EventArgs e)
     {
-		Activity activity = new Activity
+		DateTime dateTime = Activity_StartDate.Date.Value.Date;
+        dateTime = dateTime.AddHours(Activity_StartTime.Time.Value.Hours);
+        dateTime = dateTime.AddMinutes(Activity_StartTime.Time.Value.Minutes);
+        dateTime = dateTime.AddSeconds(Activity_StartTime.Time.Value.Seconds);
+
+        Activity activity = new Activity
 		{
 			Name = Name_Entry.Text,
 			Description = Activity_Description.Text,
-			StartDateTime = Activity_StartTime.Date,
+			StartDateTime = dateTime,
 			Duration = Activity_Duration.Time,
 			EventId = ActivityEvent.Id
         };

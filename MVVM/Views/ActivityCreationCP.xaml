@@ -17,7 +17,11 @@
                             Title="Name"
                             FontSize="16"/>
 
-        <material:DatePickerField x:Name="Activity_StartTime"
+        <material:DatePickerField x:Name="Activity_StartDate"
+                                  Title="Starting Date"
+                                  FontSize="16"/>
+
+        <material:TimePickerField x:Name="Activity_StartTime"
                                   Title="Starting Time"
                                   FontSize="16"/>
 
