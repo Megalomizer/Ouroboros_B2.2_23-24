@@ -4,81 +4,95 @@
              x:Class="OuroborosEvents.MVVM.Views.MainPage"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{x:StaticResource LightBackground}">
 
+    <!-- Page Behaviors -->
     <ContentPage.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{x:StaticResource Primary}"/>
+        <mct:StatusBarBehavior StatusBarColor="{x:StaticResource Primary}" />
     </ContentPage.Behaviors>
 
+    <!-- Scroll View -->
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="0"
-            Padding="0,0"
-            VerticalOptions="Center">
-            <StackLayout
-                Spacing="25"
-                Padding="30,0"
-                VerticalOptions="CenterAndExpand">
+        <!-- Vertical Stack Layout -->
+        <VerticalStackLayout Spacing="20" 
+                             Padding="30,50" 
+                             VerticalOptions="Center">
 
-                <Image
-                 Source="zuyd_login.png"
-                 HeightRequest="120"
-                 Margin="0,0,0,0"/>
+            <!-- Logo Image -->
+            <Image Source="zuyd_login.png" 
+                   HeightRequest="120" 
+                   Margin="0,0,0,20" />
 
-                <material:TextField
-                x:Name="UsernameEnt"
-                Title="E-Mail."
-                HorizontalOptions="Center"
-                WidthRequest="360"/>
+            <!-- Username Entry -->
+            <material:TextField x:Name="UsernameEnt" 
+                                Title="E-Mail." 
+                                WidthRequest="360" 
+                                HorizontalOptions="FillAndExpand" 
+                                Keyboard="Email"/>
 
-                <material:TextField
-                x:Name="PasswordEnt"
-                Title="Password."
-                IsPassword="True"
-                HorizontalOptions="Center" 
-                WidthRequest="360">
+            <!-- Password Entry -->
+            <material:TextField x:Name="PasswordEnt" 
+                                Title="Password." 
+                                IsPassword="True" 
+                                WidthRequest="360" 
+                                HorizontalOptions="FillAndExpand">
                 <material:TextField.Attachments>
                     <material:TextFieldPasswordShowHideAttachment />
                 </material:TextField.Attachments>
-                </material:TextField>
+            </material:TextField>
+            
+            <!-- Forgot Password Label -->
+            <Label Text="Forgot Password?" 
+                   HorizontalOptions="Center" 
+                   TextColor="{x:StaticResource SecondaryDark}"
+                   FontFamily="PoppinsRegular" 
+                   Margin="0,-10,220,0" />
 
+            <!-- Terms and Privacy Label -->
+            <Label Text="By logging in you're agreeing to our Terms and Privacy Policy and are at least 16 years old."
+                   FontSize="Small" 
+                   TextColor="{x:StaticResource Gray500}" 
+                   HorizontalTextAlignment="Center"
+                   FontFamily="PoppinsRegular" 
+                   Margin="0,0,0,10" />
 
-                <Label
-                Text="By logging in you're agreeing to our Terms and Privacy Policy and are atleast 16 years old."
-                FontSize="Small"
-                TextColor="{x:StaticResource Gray500}"
-                HorizontalTextAlignment="Center"
-                FontFamily="PoppinsRegular"/>
+            <!-- Login Button -->
+            <Button x:Name="LoginBtn" 
+                    Text="Log in" 
+                    WidthRequest="300" 
+                    FontFamily="PoppinsRegular" 
+                    Margin="0,2,0,-5"
+                    Background="{x:StaticResource Primary}" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    Clicked="LoginBtn_Clicked"
+                    HorizontalOptions="CenterAndExpand" />
 
-                <Button
-                x:Name="LoginBtn"
-                Text="Log in"
-                WidthRequest="360"
-                FontFamily="PoppinsRegular"
-                Margin="0,5,0,0"
-                Background="{x:StaticResource Primary}"
-                FontAttributes="Bold"
-                Clicked="LoginBtn_Clicked"
-                HorizontalOptions="Center" />
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="CenterAndExpand">
+                <Border WidthRequest="140"
+                        HeightRequest="5"
+                        Background="{x:StaticResource Primary}"/>
+                <Label Text="or"
+                       Margin="5,0,5,0"/>
+                <Border WidthRequest="135"
+                        HeightRequest="5"
+                        Background="{x:StaticResource Primary}"/>
+            </HorizontalStackLayout>
 
-                <Button
-                x:Name="RegisterBtn"
-                Text="Register"
-                WidthRequest="360"
-                FontFamily="PoppinsRegular"
-                Margin="0,0,0,0"
-                Background="{x:StaticResource Primary}"
-                FontAttributes="Bold"
-                Clicked="RegisterBtn_Clicked"
-                HorizontalOptions="Center" />
+            <!-- Register Button -->
+            <Button x:Name="RegisterBtn" 
+                    Text="Register" 
+                    WidthRequest="300" 
+                    FontFamily="PoppinsRegular"
+                    Margin="0,-10,0,0"
+                    Background="{x:StaticResource Primary}" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    Clicked="RegisterBtn_Clicked"
+                    HorizontalOptions="CenterAndExpand" />
 
-                <Label
-                Text="Forgot Password?"
-                HorizontalOptions="Center"
-                TextColor="{x:StaticResource SecondaryDark}"
-                FontFamily="PoppinsRegular"/>
-            </StackLayout>
+           
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

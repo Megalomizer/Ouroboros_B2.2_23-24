@@ -1,5 +1,6 @@
 ﻿using Camera.MAUI;
 using CommunityToolkit.Maui;
+using InputKit.Handlers;
 using Microsoft.Extensions.Logging;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.Repositories;
@@ -16,6 +17,10 @@ namespace OuroborosEvents
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureMauiHandlers(handlers => 
+                {
+                    handlers.AddInputKitHandlers();
+                })
                 .UseMauiCameraView()
                 .UseMauiCommunityToolkit()
                 .UseUraniumUI()
