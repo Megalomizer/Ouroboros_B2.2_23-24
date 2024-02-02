@@ -3,6 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.EventsDetailsCP"
              Title="Details">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="DeleteEventButtonToolbar"
+                     Text="Delete Event"
+                     Priority="1"
+                     Order="Primary"
+                     Clicked="DeleteEvent"/>
+    </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Spacing="1"
                          Margin="15,5,15,0">
@@ -122,7 +129,7 @@
                     HeightRequest="50"
                     WidthRequest="150"
                     FontSize="20"/>
-            
+
             <Button x:Name="ButtonAllActivities"
                     Text="All Activities"
                     Clicked="ShowAllActivities"
@@ -130,7 +137,7 @@
                     CornerRadius="15"
                     WidthRequest="150"
                     FontSize="20"/>
-            
+
         </HorizontalStackLayout>
 
     </VerticalStackLayout>

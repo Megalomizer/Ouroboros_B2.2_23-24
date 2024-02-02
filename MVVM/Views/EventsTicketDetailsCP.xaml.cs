@@ -1,5 +1,6 @@
 using OuroborosEvents.MVVM.ViewModels;
 using OuroborosEvents.MVVM.Models;
+using CommunityToolkit.Maui.Alerts;
 using System.Windows.Input;
 
 namespace OuroborosEvents.MVVM.Views;
@@ -15,6 +16,7 @@ public partial class EventsTicketDetailsCP : ContentPage
     }
     private async void IntrestedEvent(object sender, EventArgs e)
     {
+        string msg;
         // Check if Already exists
         List<EventGuest> eventGuests = App.EventGuestRepo.GetEntities();
         foreach (EventGuest eg in eventGuests)
@@ -30,6 +32,9 @@ public partial class EventsTicketDetailsCP : ContentPage
 
                 // Delete EventGuest
                 App.EventGuestRepo.DeleteEntity(eg);
+
+                msg = "You have removed this event from your interested events";
+                NotifyUser(sender, e, msg);
 
                 return;
             }
@@ -62,6 +67,9 @@ public partial class EventsTicketDetailsCP : ContentPage
         Event _event = eventModel.Event;
         _event.EventGuests.Add(eventGuest);
         App.EventRepo.SaveEntity(_event);
+
+        msg = "You have added this event to your interested events";
+        NotifyUser(sender, e, msg);
     }
     private async void ShowAllActivities(object sender, EventArgs e)
     {
@@ -74,5 +82,26 @@ public partial class EventsTicketDetailsCP : ContentPage
     {
         EventUserTicketVM vm = new EventUserTicketVM() { EventModel = eventModel };
         await Navigation.PushAsync(new EventsQRCodeCP() { BindingContext = vm });
+    }
+
+    private void NotifyUser(object sender, EventArgs e, string message)
+    {
+        var PrimaryColor = Colors.White;
+        var TextColor = Colors.Black;
+        if (App.Current.Resources.TryGetValue("Primary", out var primaryColor))
+            PrimaryColor = (Color)primaryColor;
+
+        if (PrimaryColor != Colors.White)
+            TextColor = Colors.White;
+
+        var snackbar = Snackbar.Make(message, null, "", TimeSpan.FromSeconds(1.5),
+            new CommunityToolkit.Maui.Core.SnackbarOptions
+            {
+                BackgroundColor = PrimaryColor,
+                CornerRadius = 15,
+                TextColor = TextColor,
+            });
+
+        snackbar.Show();
     }
 }

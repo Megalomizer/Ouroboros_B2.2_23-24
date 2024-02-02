@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Alerts;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.ViewModels;
 using System.Windows.Input;
@@ -16,6 +17,7 @@ public partial class EventsDetailsCP : ContentPage
 
     private async void IntrestedEvent(object sender, EventArgs e)
     {
+        string msg;
         // Check if Already exists
         List<EventGuest> eventGuests = App.EventGuestRepo.GetEntities();
         foreach (EventGuest eg in eventGuests)
@@ -31,6 +33,9 @@ public partial class EventsDetailsCP : ContentPage
 
                 // Delete EventGuest
                 App.EventGuestRepo.DeleteEntity(eg);
+
+                msg = "You have removed this event from your interested events";
+                NotifyMessage(sender, e, msg);
 
                 return;
             }
@@ -64,17 +69,22 @@ public partial class EventsDetailsCP : ContentPage
         Event _event = EventModel.Event;
         _event.EventGuests.Add(eventGuest);
         App.EventRepo.SaveEntity(_event);
+
+        msg = "You have added this event to your interested events";
+        NotifyMessage(sender, e, msg);
     }
 
     private void ShareEvent(object sender, EventArgs e)
     {
-
+        string msg = "This will be implemented on a later date";
+        NotifyMessage(sender, e, msg);
     }
 
     private void GetEventTicket(object sender, EventArgs e)
     {
         // Check if already user owns a ticket
-        EventGuest eventGuest = null;
+        EventGuest? eventGuest = null;
+        string msg;
 
         List<EventGuest> eventGuests = App.EventGuestRepo.GetEntities();
         foreach (EventGuest eg in eventGuests)
@@ -82,16 +92,37 @@ public partial class EventsDetailsCP : ContentPage
             if (eg.EventId == EventModel.Event.Id && eg.GuestId == App.LoggedInUser.Id)
             {
                 if (eg.HasTicket == true)
+                {
+                    msg = "You already own a ticket to this event";
+                    NotifyMessage(sender, e, msg);
                     return;
+                }
 
                 eventGuest = eg;
             }
         }
 
         if (eventGuest == null)
-            return;
+        {
+            eventGuest = new EventGuest()
+            {
+                EventId = EventModel.Event.Id,
+                GuestId = App.LoggedInUser.Id,
+                HasTicket = true
+            };                
+        }
+        else
+        {
+            eventGuest.HasTicket = true;
+            if (eventGuest.EventId == null)
+                eventGuest.EventId = EventModel.Event.Id;
+            if (eventGuest.GuestId == null)
+                eventGuest.GuestId = App.LoggedInUser.Id;
+        }
 
-        eventGuest.HasTicket = true;
+        msg = "You now have a ticket to this event";
+        NotifyMessage(sender, e, msg);
+
         App.EventGuestRepo.SaveEntity(eventGuest);
     }
 
@@ -129,5 +160,26 @@ public partial class EventsDetailsCP : ContentPage
         YourEventModelVM eventModel = (YourEventModelVM)BindingContext;
         Event ev = eventModel.Event;
         await Navigation.PushAsync(new EventAllTicketsCP() { BindingContext = new UsersEventTicketListVM(ev) });
+    }
+
+    private void NotifyMessage(object sender, EventArgs e, string message)
+    {
+        var PrimaryColor = Colors.White;
+        var TextColor = Colors.Black;
+        if (App.Current.Resources.TryGetValue("Primary", out var primaryColor))
+            PrimaryColor = (Color)primaryColor;
+
+        if (PrimaryColor != Colors.White)
+            TextColor = Colors.White;
+
+        var snackbar = Snackbar.Make(message, null, "", TimeSpan.FromSeconds(1.5),
+            new CommunityToolkit.Maui.Core.SnackbarOptions 
+            {
+                BackgroundColor = PrimaryColor,
+                CornerRadius = 15,
+                TextColor = TextColor,
+            });
+
+        snackbar.Show();
     }
 }

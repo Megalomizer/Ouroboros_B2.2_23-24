@@ -5,7 +5,7 @@
              xmlns:CV="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              Title="Mobile Ticket">
     
-    <VerticalStackLayout>
+    <StackLayout>
         <!-- Using a boxview to add padding for the top of the screen -->
         <BoxView HeightRequest="50" BackgroundColor="Transparent"/>
         <StackLayout
@@ -96,5 +96,5 @@
             </HorizontalStackLayout>
             <BoxView HeightRequest="50" BackgroundColor="Transparent"/>
         </StackLayout>
-    </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>
