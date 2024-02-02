@@ -60,10 +60,14 @@
                                            Grid.Column="1"
                                            FontSize="16"/>
 
-                                <Label x:Name="ActivityDateTime"
-                                           Text="{Binding StartDateTime}"
-                                           Grid.Row="2"
-                                           FontSize="16"/>
+                                <HorizontalStackLayout Grid.Row="2" Spacing="2">
+                                    <Label Text="{Binding StartDateTime.Day}" FontSize="16"/>
+                                    <Label Text="/" FontSize="16"/>
+                                    <Label Text="{Binding StartDateTime.Month}" FontSize="16"/>
+                                    <Label Text="/" FontSize="16"/>
+                                    <Label Text="{Binding StartDateTime.Year}" FontSize="16" Margin="0,0,10,0"/>
+                                    <Label Text="{Binding StartDateTime.TimeOfDay}" FontSize="16"/>
+                                </HorizontalStackLayout>
 
                                 <Label x:Name="ActivityDuration"
                                            Text="{Binding Duration}"

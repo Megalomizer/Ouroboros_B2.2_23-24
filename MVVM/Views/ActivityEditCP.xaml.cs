@@ -1,3 +1,4 @@
+using Android.Icu.Util;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.ViewModels;
 
@@ -16,7 +17,9 @@ namespace OuroborosEvents.MVVM.Views
             var uneditedActivity = BindingContext as ActivityDetailsVM;
 
             DateTime dateTime = StartingDate.Date;
-            dateTime.Add(StartingTime.Time);
+            dateTime = dateTime.AddHours(StartingTime.Time.Hours);
+            dateTime = dateTime.AddMinutes(StartingTime.Time.Minutes);
+            dateTime = dateTime.AddSeconds(StartingTime.Time.Seconds);
 
             Activity activity = new Activity()
             {

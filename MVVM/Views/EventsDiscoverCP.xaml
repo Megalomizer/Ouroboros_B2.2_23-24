@@ -17,6 +17,7 @@
         <ListView ItemsSource="{Binding Events}"
                   x:Name="ListViewEvents"
                   RowHeight="105"
+                  Margin="0,5,0,0"
                   WidthRequest="340"
                   SelectionMode="None"
                   SeparatorVisibility="None"
