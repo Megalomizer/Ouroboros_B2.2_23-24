@@ -1,4 +1,3 @@
-using Android.Icu.Util;
 using OuroborosEvents.MVVM.Models;
 using OuroborosEvents.MVVM.ViewModels;
 

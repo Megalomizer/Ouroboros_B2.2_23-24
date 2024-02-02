@@ -8,7 +8,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="CreateEvent"
                      Text="Create New Event" 
-                     IconImageSource="plus.png"
+                     IconImageSource="add_icon.png"
                      Priority="1"
                      Clicked="CreateEventButton"/>
     </ContentPage.ToolbarItems>

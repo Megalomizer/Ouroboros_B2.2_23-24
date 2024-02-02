@@ -5,8 +5,8 @@
              Title="Details">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="DeleteEventButtonToolbar"
-                     Text="Delete Event"
-                     Priority="1"
+                     IconImageSource="delete.png"
+                     Priority="0"
                      Order="Primary"
                      Clicked="DeleteEvent"/>
     </ContentPage.ToolbarItems>
