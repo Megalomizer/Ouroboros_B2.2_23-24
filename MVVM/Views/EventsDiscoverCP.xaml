@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OuroborosEvents.MVVM.Views.EventsDiscoverCP"
-             Title="EventsDiscoverCP"
+             Title="Discover"
              NavigationPage.HasBackButton="False">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="CreateEvent"
                      Text="Create New Event"
-                     Priority="0"
-                     Order="Secondary"
+                     IconImageSource="plus.png"
+                     Priority="1"
                      Clicked="CreateEventButton"/>
     </ContentPage.ToolbarItems>
 
