@@ -4,7 +4,7 @@
              x:Class="OuroborosEvents.MVVM.Views.EventsAccountCP"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
-             Title="EventsAccountCP"
+             Title="Account"
              NavigationPage.HasBackButton="False">
 
     <!--For buttons in the top row-->
