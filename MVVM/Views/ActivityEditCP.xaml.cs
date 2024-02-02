@@ -25,6 +25,8 @@ namespace OuroborosEvents.MVVM.Views
                 Description = Description.Text,
                 StartDateTime = dateTime,
                 Duration = Duration.Time,
+                EventId = uneditedActivity.Activity.EventId,
+                ExhibitId = uneditedActivity.Activity.ExhibitId
             };
 
             if (activity.Name == null || activity.Name == "")
