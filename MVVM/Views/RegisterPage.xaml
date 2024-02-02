@@ -99,6 +99,7 @@
 
             <Button
                 x:Name="RegisterBtn"
+                TextColor="{x:StaticResource White}"
                 StyleClass="FilledButton"
                 Text="Register"
                 FontAttributes="Bold"
