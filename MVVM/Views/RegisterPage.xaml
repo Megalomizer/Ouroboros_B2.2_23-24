@@ -6,92 +6,106 @@
              xmlns:validation="clr-namespace:InputKit.Shared.Validations;assembly=InputKit.Maui"
              xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
              Title="Register Account">
-    
+
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="7"
-            Padding="20,0"
-            VerticalOptions="Center">
-            
-            <HorizontalStackLayout Spacing="5" HorizontalOptions="CenterAndExpand">
+        <StackLayout Spacing="14">
+
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="CenterAndExpand" Margin="0,15,0,0">
                 <Border WidthRequest="100"
                         HeightRequest="5"
-                        Background="{x:StaticResource Primary}"/>
+                        Background="{x:StaticResource Primary}"
+                        HorizontalOptions="Center"/>
                 <Label Text="General Information"
                        Margin="5,0,5,0"/>
                 <Border WidthRequest="100"
                         HeightRequest="5"
-                        Background="{x:StaticResource Primary}"/>
+                        Background="{x:StaticResource Primary}"
+                        HorizontalOptions="Center"/>
             </HorizontalStackLayout>
 
             <material:TextField
                 x:Name="RegFirstName"
-                Title="Firstname*"
+                Title="Firstname"
                 WidthRequest="360" 
                 HorizontalOptions="Center" >
                 <validation:LettersOnlyValidation AllowSpaces="True" />
                 <validation:RequiredValidation />
                 <validation:MinLengthValidation MinLength="5" />
             </material:TextField>
-            <Label
-                x:Name="LastNamelbl"
-                Text="Last name:"
-                HorizontalOptions="Center" />
-            <Entry
+
+            <material:TextField
                 x:Name="RegLastName"
-                Placeholder="Please enter your last name."
-                HorizontalOptions="Center" />
-            <Label
-                x:Name="EMaillbl"
-                Text="E-Mail:"
-                HorizontalOptions="Center" />
-            <Entry
+                Title="Surname"
+                WidthRequest="360"
+                HorizontalOptions="Center" >
+                <material:TextField.Validations>
+                    <validation:RequiredValidation />
+                    <validation:LettersOnlyValidation AllowSpaces="True" />
+                    <validation:MinLengthValidation MinLength="5" />
+                </material:TextField.Validations>
+            </material:TextField>
+
+            <material:TextField
                 x:Name="RegEMail"
                 Keyboard="Email"
-                Placeholder="Please enter your E-Mail."
-                HorizontalOptions="Center" />
-            <Label
-                x:Name="RegPhonelb"
-                Text="Phonenumber"
-                HorizontalOptions="Center"/>
-            <Entry 
+                Title="Email"
+                WidthRequest="360"
+                HorizontalOptions="Center">
+                <validation:RequiredValidation />
+                <validation:RegexValidation Pattern="{x:Static input:AdvancedEntry.REGEX_EMAIL}" Message="Invalid email address" />
+            </material:TextField>
+
+            <material:TextField
                 x:Name="RegPhone"
                 Keyboard="Numeric"
-                Placeholder="Please enter your phonenumber"
-                HorizontalOptions="Center"/>
+                Title="Phonenumber"
+                WidthRequest="360"
+                HorizontalOptions="Center">
+                <material:TextField.Validations>
+                    <validation:MinValueValidation MinValue="9" />
+                    <validation:DigitsOnlyValidation />
+                </material:TextField.Validations>
+            </material:TextField>
 
-            <Label x:Name="RegLinkedInLb"
-                   Text="LinkedIn Pagina:"
-                   HorizontalOptions="Center"/>
-            <Entry x:Name="RegLinkedIn"
-                   Placeholder="Please enter your LinkedIn pagina"
-                   HorizontalOptions="Center"/>
-
-            <Label
-                x:Name="Passwordlbl"
-                Text="Password:"
-                HorizontalOptions="Center" />
-            <Entry
+            <material:TextField
                 x:Name="RegPassword"
                 IsPassword="True"
-                Placeholder="Please enter your password."
-                HorizontalOptions="Center" />
-            <Label
-                x:Name="PasswordChecklbl"
-                Text="Password:"
-                HorizontalOptions="Center" />
-            <Entry
-                x:Name="RegPasswordCheck"
-                IsPassword="True"
-                Placeholder="Please enter your password."
-                HorizontalOptions="Center" />
+                Title="Password"
+                HorizontalOptions="Center"
+                WidthRequest="360">
+                <validation:RequiredValidation/>
+                <material:TextField.Attachments>
+                    <material:TextFieldPasswordShowHideAttachment />
+                </material:TextField.Attachments>
+            </material:TextField>
 
+            <material:TextField
+                 x:Name="RegPasswordCheck"
+                 IsPassword="True"
+                 Title="Re-enter password"
+                 HorizontalOptions="Center" 
+                 WidthRequest="360">
+                <validation:RequiredValidation/>
+                <material:TextField.Attachments>
+                    <material:TextFieldPasswordShowHideAttachment />
+                </material:TextField.Attachments>
+            </material:TextField>
+
+            <material:TextField
+                x:Name="RegLinkedIn"
+                Title="Linkedin"
+                HorizontalOptions="Center"
+                WidthRequest="360"/>
+
+           
 
             <Button
                 x:Name="RegisterBtn"
                 Text="Register"
                 Clicked="RegisterBtn_Clicked"
-                HorizontalOptions="Center" />
-        </VerticalStackLayout>
-     </ScrollView>
+                HorizontalOptions="Center"
+                Margin="0,14,0,0"
+                WidthRequest="300"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -69,6 +69,7 @@
                     Clicked="LoginBtn_Clicked"
                     HorizontalOptions="CenterAndExpand" />
 
+            <!-- The dividir between the login and register buttons -->
             <HorizontalStackLayout Spacing="5" HorizontalOptions="CenterAndExpand">
                 <Border WidthRequest="140"
                         HeightRequest="5"
@@ -91,8 +92,6 @@
                     FontAttributes="Bold" 
                     Clicked="RegisterBtn_Clicked"
                     HorizontalOptions="CenterAndExpand" />
-
-           
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
