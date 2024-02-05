@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OuroborosEvents.MVVM.Views.ContactInfoQRCodeCP"
+             xmlns:cam="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             Title="Personal QR">
+
+    <StackLayout Spacing="20" Padding="20">
+        <BoxView HeightRequest="15" BackgroundColor="Transparent"/>
+
+        <Label Text="Scan the QR code!"
+               HorizontalOptions="Center"
+               FontSize="30"
+               LineBreakMode="WordWrap"
+               WidthRequest="300"
+               Margin="20,0,0,0"/>
+
+        <cam:BarcodeImage x:Name="ContactSharingQrCode"
+                          WidthRequest="400"
+                          HeightRequest="400"
+                          BarcodeWidth="400"
+                          BarcodeHeight="400"                        
+                          BarcodeForeground="{x:StaticResource Black}"
+                          BackgroundColor="{x:StaticResource White}"
+                          BarcodeFormat="QR_CODE"
+                          BarcodeMargin="5"
+                          Barcode="{Binding QrJson}"/>
+
+        <Label Text="Have someone scan this through the app to easily share your contact info!"
+               HorizontalOptions="Center"
+               FontSize="18"
+               WidthRequest="350"/>
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OuroborosEvents.MVVM.Views.MainPage"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{x:StaticResource LightBackground}">
+
+    <!-- Page Behaviors -->
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{x:StaticResource Primary}" />
+    </ContentPage.Behaviors>
+
+    <!-- Scroll View -->
+    <ScrollView>
+        <!-- Vertical Stack Layout -->
+        <VerticalStackLayout Spacing="20" 
+                             Padding="30,50" 
+                             VerticalOptions="Center">
+
+            <!-- Logo Image -->
+            <Image Source="zuyd_login.png" 
+                   HeightRequest="120" 
+                   Margin="0,0,0,20" />
+
+            <!-- Username Entry -->
+            <material:TextField x:Name="UsernameEnt" 
+                                Title="E-Mail." 
+                                WidthRequest="360" 
+                                HorizontalOptions="FillAndExpand" 
+                                Keyboard="Email"/>
+
+            <!-- Password Entry -->
+            <material:TextField x:Name="PasswordEnt" 
+                                Title="Password." 
+                                IsPassword="True" 
+                                WidthRequest="360" 
+                                HorizontalOptions="FillAndExpand">
+                <material:TextField.Attachments>
+                    <material:TextFieldPasswordShowHideAttachment />
+                </material:TextField.Attachments>
+            </material:TextField>
+            
+            <!-- Forgot Password Label -->
+            <Label Text="Forgot Password?" 
+                   HorizontalOptions="Center" 
+                   TextColor="{x:StaticResource SecondaryDark}"
+                   FontFamily="PoppinsRegular" 
+                   Margin="0,-10,220,0" />
+
+            <!-- Terms and Privacy Label -->
+            <Label Text="By logging in you're agreeing to our Terms and Privacy Policy and are at least 16 years old."
+                   FontSize="Small" 
+                   TextColor="{x:StaticResource Gray500}" 
+                   HorizontalTextAlignment="Center"
+                   FontFamily="PoppinsRegular" 
+                   Margin="0,0,0,10" />
+
+            <!-- Login Button -->
+            <Button x:Name="LoginBtn" 
+                    StyleClass="FilledButton"
+                    Text="Log in" 
+                    WidthRequest="300" 
+                    FontFamily="PoppinsRegular" 
+                    Margin="0,2,0,-5"
+                    Background="{x:StaticResource Primary}" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    Clicked="LoginBtn_Clicked"
+                    HorizontalOptions="CenterAndExpand" />
+
+            <!-- The divider between the login and register buttons -->
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="CenterAndExpand">
+                <Border WidthRequest="140"
+                        HeightRequest="5"
+                        Background="{x:StaticResource Primary}"/>
+                <Label Text="Or"
+                       Margin="5,0,5,0"/>
+                <Border WidthRequest="135"
+                        HeightRequest="5"
+                        Background="{x:StaticResource Primary}"/>
+            </HorizontalStackLayout>
+
+            <!-- Register Button -->
+            <Button StyleClass="OutlinedButton" 
+                    x:Name="RegisterBtn" 
+                    Text="Register" 
+                    WidthRequest="300" 
+                    FontFamily="PoppinsRegular"
+                    Margin="0,-10,0,0"
+                    TextColor="{x:StaticResource Primary}" 
+                    BorderColor="{x:StaticResource Primary}"
+                    FontAttributes="Bold" 
+                    Clicked="RegisterBtn_Clicked"
+                    HorizontalOptions="CenterAndExpand" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

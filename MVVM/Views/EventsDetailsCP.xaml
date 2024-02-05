@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OuroborosEvents.MVVM.Views.EventsDetailsCP"
+             Title="Details">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="DeleteEventButtonToolbar"
+                     IconImageSource="delete.png"
+                     Priority="0"
+                     Order="Primary"
+                     Clicked="DeleteEvent"/>
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout Spacing="1"
+                         Margin="15,5,15,0">
+        
+        <HorizontalStackLayout Spacing="2">
+            <Label x:Name="StartingDate_Day"
+                   Text="{Binding Event.StartingDate.Day}"
+                   TextColor="{x:StaticResource Gray300}"
+                   FontSize="14"/>
+            
+            <Label x:Name="StartingDate_DayMonth"
+                   Text="/"
+                   TextColor="{x:StaticResource Gray300}"
+                   FontSize="14"/>
+            
+            <Label x:Name="StartingDate_Date"
+                   Text="{Binding Event.StartingDate.Month}"
+                   TextColor="{x:StaticResource Gray300}"
+                   FontSize="14"/>
+
+            <Label x:Name="StartingDate_MonthYear"
+                   Text="/"
+                   TextColor="{x:StaticResource Gray300}"
+                   FontSize="14"/>
+
+            <Label x:Name="StartingDate_Month"
+                   Text="{Binding Event.StartingDate.Year}"
+                   TextColor="{x:StaticResource Gray300}"
+                   FontSize="14"/>
+
+            <Label x:Name="StartingDate_Time"
+                   Text="{Binding Event.DailyOpeningTime}"
+                   TextColor="{x:StaticResource Gray300}"
+                   FontSize="14"
+                   Margin="20,0,0,0"/>
+        </HorizontalStackLayout>
+
+        <Label x:Name="EventName"
+               Text="{Binding Event.Name}"
+               Margin="0,5,0,5"
+               FontSize="32"/>
+
+        <HorizontalStackLayout>
+            <Label x:Name="AddressStreet"
+                   Text="{Binding Address.Street}"
+                   Margin="0,0,5,0"
+                   FontSize="16"/>
+            
+            <Label x:Name="AddressHousenumber"
+                   Text="{Binding Address.HouseNumber}"
+                   FontSize="16"/>
+
+            <Label Text=","
+                   FontSize="16"
+                   Margin="0,0,10,0"/>
+
+            <Label x:Name="AddressCity"
+                   Text="{Binding Address.City}"
+                   FontSize="16"
+                   Margin="0,0,10,0"/>
+            
+            <Label x:Name="AddressPostalCode"
+                   Text="{Binding Address.PostalCode}"
+                   FontSize="16"/>
+        </HorizontalStackLayout>
+
+        <Rectangle x:Name="DataDevider"
+                   Margin="0,30,0,10"
+                   WidthRequest="400"
+                   HeightRequest="3"
+                   Background="{x:StaticResource Primary}"/>
+
+        <HorizontalStackLayout Spacing="10"
+                               >
+            <Button x:Name="IntrestedEventButton"
+                    Text="Intrested"
+                    WidthRequest="105"
+                    Clicked="IntrestedEvent"/>
+
+            <Button x:Name="ShareEventButton"
+                    Text="Share"
+                    WidthRequest="105"
+                    Clicked="ShareEvent"/>
+
+            <Button x:Name="EditEventButton"
+                    Text="Edit Event"
+                    WidthRequest="105"
+                    Clicked="EditEvent"/>
+
+        </HorizontalStackLayout>
+
+        <Button x:Name="GetEventTicketButton"
+                Text="Get Tickets to the Event"
+                HorizontalOptions="Start"
+                WidthRequest="335"
+                Margin="0,5,0,0"
+                Clicked="GetEventTicket"/>
+
+        <Label x:Name="DescriptionTitle"
+               Text="Description"
+               FontSize="20"
+               Margin="0,40,0,0"/>
+
+        <Editor x:Name="EventDescription"
+                Text="{Binding Event.Description}"
+                IsReadOnly="True"
+                Margin="0,5,0,0"/>
+
+        <HorizontalStackLayout Margin="0,30,0,0"
+                               Spacing="10"
+                               HorizontalOptions="CenterAndExpand">
+
+            <Button x:Name="ButtonAllTicketedUsers"
+                    Text="All Tickets"
+                    Clicked="ShowAllTickets"
+                    CornerRadius="15"
+                    HeightRequest="50"
+                    WidthRequest="150"
+                    FontSize="20"/>
+
+            <Button x:Name="ButtonAllActivities"
+                    Text="All Activities"
+                    Clicked="ShowAllActivities"
+                    HeightRequest="50"
+                    CornerRadius="15"
+                    WidthRequest="150"
+                    FontSize="20"/>
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>

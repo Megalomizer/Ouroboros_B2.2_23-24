@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OuroborosEvents.MVVM.Views.EventsYourEventsCP"
+             Title="My events"
+             NavigationPage.HasBackButton="False">
+
+    <StackLayout>
+
+        <ListView ItemsSource="{Binding Events}"
+                  x:Name="ListViewEvents"
+                  Margin="0,5,0,0"
+                  RowHeight="105"
+                  WidthRequest="340"
+                  SelectionMode="None"
+                  SeparatorVisibility="None"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="ResetList">
+            <ListView.ItemTemplate>
+                <DataTemplate>  
+                    <ViewCell Tapped="EventSelected">
+                        <Border BackgroundColor="{x:StaticResource Tertiary}"
+                                Margin="0,5,0,5"
+                                Stroke="{x:StaticResource PrimaryDeepDark}"
+                                StrokeThickness="3"
+                                StrokeShape="RoundRectangle 10"
+                                HeightRequest="95">
+
+                            <Grid Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="EventId"
+                                       Text="{Binding Event.Id}"
+                                       IsVisible="False"/>
+
+                                <Label x:Name="EventName"
+                                       Text="{Binding Event.Name}"
+                                       Grid.Row="1"
+                                       FontAttributes="Bold"
+                                       FontSize="24"/>
+
+                                <HorizontalStackLayout Grid.Row="2" 
+                                                       Spacing="2">
+                                    
+                                    <Label x:Name="StartingDateDay"
+                                           Text="{Binding Event.StartingDate.Day}"
+                                           FontSize="16"/>
+                                    
+                                    <Label Text="/"
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="StartingDateMonth"
+                                           Text="{Binding Event.StartingDate.Month}"
+                                           FontSize="16"/>
+                                    
+                                    <Label Text="/"
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="StartingDateYear"
+                                           Text="{Binding Event.StartingDate.Year}"
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="StartingTime"
+                                           Text="{Binding Event.DailyOpeningTime}"
+                                           FontSize="16"
+                                           Margin="10,0,0,0"/>
+                                    
+                                </HorizontalStackLayout>
+                                
+                                <Label Text="-" 
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       FontSize="16"/>
+                                
+                                <HorizontalStackLayout Grid.Row="2"
+                                                       Grid.Column="2"
+                                                       Spacing="2">
+                                    
+                                    <Label x:Name="EndingDateDay"
+                                           Text="{Binding Event.EndingDate.Day}"
+                                           FontSize="16"/>
+                                    
+                                    <Label Text="/"
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="EndingDateMonth"
+                                           Text="{Binding Event.EndingDate.Month}"
+                                           FontSize="16"/>
+                                    
+                                    <Label Text="/"
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="EndingDateYear"
+                                           Text="{Binding Event.EndingDate.Year}"
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="EndingTime"
+                                           Text="{Binding Event.DailyClosingTime}"
+                                           FontSize="16"
+                                           Margin="10,0,0,0"/>
+                                    
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Grid.Row="3"
+                                                       Grid.Column="0"
+                                                       Spacing="0">
+
+                                    <Label x:Name="AddressStreet"  
+                                           Text="{Binding Address.Street}"
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="AddressNmr"  
+                                           Text="{Binding Address.HouseNumber}"
+                                           FontSize="16"
+                                           Margin="5,0,0,0"/>
+                                    
+                                    <Label Text=","
+                                           FontSize="16"/>
+                                    
+                                    <Label x:Name="AddressCity"  
+                                           Text="{Binding Address.City}"
+                                           FontSize="16"
+                                           Margin="10,0,0,0"/>
+                                    
+                                    <Label x:Name="AddressPost"  
+                                           Text="{Binding Address.PostalCode}"
+                                           FontSize="16"
+                                           Margin="5,0,0,0"/>
+                                    
+                                </HorizontalStackLayout>
+
+                            </Grid>
+
+                        </Border>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

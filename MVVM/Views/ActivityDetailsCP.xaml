@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OuroborosEvents.MVVM.Views.ActivityDetailsCP"
+             Title="Details">
+    
+    <VerticalStackLayout Spacing="10"
+                         Margin="15,10,15,0">
+
+        <Label x:Name="ActivityName"
+               Margin="0,10,0,0"
+               HorizontalOptions="Center"
+               Text="{Binding Activity.Name}"
+               FontSize="30"/>
+
+        <Rectangle x:Name="NameDivider"
+                   HeightRequest="5 "
+                   WidthRequest="400"
+                   Margin="0,5,0,5"
+                   BackgroundColor="{x:StaticResource Primary}"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="EventLabel"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Event:"
+                   FontSize="20"/>
+            <Label x:Name="EventText"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Text="{Binding Event.Name}"
+                   FontSize="20"/>
+            
+            <Label x:Name="ExhibitLabel"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Exhibit:"
+                   FontSize="20"/>
+            <Label x:Name="ExhibitText"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding Exhibit.Name}"
+                   FontSize="20"/>
+            
+            <Label x:Name="ActivityStartLabel"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Starts:"
+                   FontSize="20"/>
+            <HorizontalStackLayout x:Name="ActivityStartDateTime"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                   Spacing="10">
+                <HorizontalStackLayout x:Name="ActivityStartDate"
+                                       Spacing="5">
+                    <Label x:Name="ActivityDay"
+                           Text="{Binding Activity.StartDateTime.Day}"
+                           FontSize="20"/>
+                    <Label x:Name="ActivityDevider1"
+                           Text="/"
+                           FontSize="20"/>
+                    <Label x:Name="ActivityWeek"
+                           Text="{Binding Activity.StartDateTime.Month}"
+                           FontSize="20"/>
+                    <Label x:Name="ActivityDevider2"
+                           Text="/"
+                           FontSize="20"/>
+                    <Label x:Name="ActivityYear"
+                           Text="{Binding Activity.StartDateTime.Year}"
+                           FontSize="20"/>
+                </HorizontalStackLayout>
+                
+                <Label x:Name="ActivityStartTime"
+                       Text="{Binding Activity.StartDateTime.TimeOfDay}"
+                       FontSize="20"/>
+            </HorizontalStackLayout>
+
+            <Label x:Name="ActivityDurationLabel"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   Text="Duration:"
+                   FontSize="20"/>
+            <HorizontalStackLayout x:Name="ActivityDurationTime"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                                   Spacing="5">
+                <Label x:Name="ActivityDurationHours"
+                       Text="{Binding Activity.Duration.Hours}"
+                       FontSize="20"/>
+                <Label x:Name="HoursText"
+                       Text="Hours"
+                       FontSize="20"/>
+                <Label x:Name="ActivityDurationMinutes"
+                       Text="{Binding Activity.Duration.Minutes}"
+                       FontSize="20"/>
+                <Label x:Name="MinutesText"
+                       Text="Minutes"
+                       FontSize="20"/>
+            </HorizontalStackLayout>
+
+        </Grid>
+
+        <Label x:Name="ActivityDescriptionLabel"
+               Text="Description"
+               FontSize="20"
+               Margin="5,0,0,0"/>
+        <Editor x:Name="ActivityDescriptionText"
+                Text="{Binding Activity.Description}"
+                IsReadOnly="True"
+                FontSize="16"/>
+
+        <HorizontalStackLayout x:Name="DetailedButtons"
+                               Spacing="20"
+                                HorizontalOptions="Center">
+            <Button x:Name="DeleteActivityButton"
+                    Text="Delete"
+                    WidthRequest="150"
+                    Clicked="DeleteActivity"
+                    FontSize="18"/>
+            <Button x:Name="EditActivityButton"
+                    Text="Edit"
+                    WidthRequest="150"
+                    Clicked="EditActivity"
+                    FontSize="18"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+    
+</ContentPage>
