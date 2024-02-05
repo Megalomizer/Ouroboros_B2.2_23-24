@@ -32,13 +32,21 @@ namespace OuroborosEvents.MVVM.ViewModels
                 {
                     if(eg.GuestId == guest.Id)
                     {
-                        Event ev = App.EventRepo.GetEntity(eg.EventId);
-                        YourEventModelVM vm = new YourEventModelVM()
+                        try
                         {
-                            Event = ev,
-                            Address = App.AddressRepo.GetEntity(ev.AddressId)
-                        };
-                        yourEvents.Add(vm);
+                            Event ev = App.EventRepo.GetEntity(eg.EventId);
+                            YourEventModelVM vm = new YourEventModelVM()
+                            {
+                                Event = ev,
+                                Address = App.AddressRepo.GetEntity(ev.AddressId)
+                            };
+                            yourEvents.Add(vm);
+                        }
+                        catch (Exception ex) 
+                        {
+                            Console.WriteLine (ex.Message);
+                            
+                        }
                     }
                 }
 
